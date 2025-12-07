@@ -1,0 +1,55 @@
+RayGamix End-User Participation Agreement
+This document is not a legally binding contract. It serves as an official project policy for all participants.
+
+
+1. Introduction
+RayGamix (“the Project”) is a proprietary interactive digital experience developed for creative, experimental, and entertainment-focused purposes.
+By accessing, launching, or otherwise interacting with the Project, the individual (“Participant”) acknowledges and accepts the policies and standards outlined in this Agreement.
+
+
+2. Authorized Participant Activity
+Participants are granted a limited, non-exclusive, and revocable permission to engage with the Project under the following conditions:
+
+Personal Use: Participants may access and interact with the Project solely for personal entertainment, evaluation, and engagement.
+Media Sharing: Participants may publish non-commercial media (including screenshots, recordings, commentary, or streams) for the purpose of discussion, feedback, or community engagement.
+Feedback Submission: Participants may provide feedback, reports, or suggestions to support ongoing project development.
+Project Reference: Participants may publicly reference the Project name (“RayGamix”) in discussions, reviews, or community conversations, provided such references are accurate and respectful.
+
+3. Prohibited Conduct
+To maintain project integrity, identity, and operational consistency, Participants agree not to engage in the following activities:
+
+Misrepresentation: Impersonating, claiming affiliation with, or representing themselves as official staff, partners, or authorized personnel of the RayGamix development team.
+Unauthorized Distribution: Copying, modifying, duplicating, or redistributing the Project, or any portion thereof, without explicit authorization from the Developer.
+Asset Extraction or Repurposing: Utilizing, exporting, or integrating any Project assets—including visual, auditory, structural, interactive, or conceptual components—within external products, services, or projects without prior approval.
+Identity Infringement: Claiming ownership of the Project, its brand, identity, name, or creative content.
+
+4. Project Evolution and Modifications
+The Participant acknowledges that RayGamix is an evolving and continuously updated project. Accordingly:
+
+Project features, assets, systems, or functionalities may be updated, revised, replaced, or removed at any time.
+Development timelines and priorities are determined exclusively by the Developer.
+The Project’s design, interface, performance, and availability may change without prior notice.
+Participants understand that project evolution is an integral aspect of RayGamix’s development cycle.
+
+
+5. Availability, Stability, and Performance
+RayGamix is made accessible on a voluntary participation basis. The Project is provided without any guarantee regarding:
+
+Operational stability or uptime
+Feature completeness or future feature availability
+Performance consistency
+Preservation of Participant-generated or local data
+Continuity of service or long-term accessibility
+Participants engage with the Project at their own discretion and assume all associated risks.
+
+
+6. Feedback and Intellectual Input
+Participants are encouraged to contribute feedback and suggestions. By submitting any form of input:
+
+The Participant acknowledges that all recommendations, ideas, or suggested improvements are voluntarily provided and may be used or disregarded at the Developer’s discretion.
+The Developer is not obligated to acknowledge, implement, or respond to submitted feedback.
+All creative and directional decisions remain solely under the Developer’s authority.
+
+7. Acceptance of Agreement
+By accessing or interacting with RayGamix, the Participant affirms that they have read, understood, and accepted the terms and policies outlined in this Agreement.
+Participants who do not agree with the guidelines presented are advised to discontinue use of the Project.

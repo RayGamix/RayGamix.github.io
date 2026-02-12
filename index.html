@@ -1,189 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RayGamix – The Future Game</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RayGamix Index</title>
   <style>
-    /* === Fullscreen Fix === */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
+    :root{
+      --bg:#000;
+      --panel:#071018;
+      --card:#111;
+      --muted:#9aa;
+      --accent:#00b7ff;
+      --accent-2:#00cc66;
+      --glass: rgba(255,255,255,0.03);
+      --gap:16px;
+      color-scheme: dark;
     }
 
-    /* === Animated Swirling Background === */
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
-      text-align: center;
+    html,body{height:100%;margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;}
 
-      background:
-        radial-gradient(circle at 70% 30%, #333333, #000000 70%),
-        radial-gradient(circle at 30% 70%, #666666, #000000 70%),
-        #000000;
-
-      background-size: 200% 200%;
-      animation: swirl 20s ease-in-out infinite;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      height: 100vh;
-      position: relative;
+    /* Layout */
+    .app {
+      display:grid;
+      grid-template-columns: 220px 1fr 420px;
+      grid-template-rows: 72px 1fr;
+      gap: var(--gap);
+      height:100vh;
+      padding: 18px;
+      box-sizing:border-box;
+      align-items:start;
     }
 
-    @keyframes swirl {
-      0%   { background-position: 0% 0%; }
-      25%  { background-position: 50% 20%; }
-      50%  { background-position: 100% 50%; }
-      75%  { background-position: 50% 80%; }
-      100% { background-position: 0% 0%; }
+    /* Left column */
+    .sidebar {
+      grid-row: 1 / span 2;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
     }
 
-    /* === Glow Aura Behind Logo === */
-    .glow {
-      position: relative;
-      display: inline-block;
+    .create-btn {
+      writing-mode:vertical-rl;
+      transform:rotate(180deg);
+      background: linear-gradient(180deg,var(--accent),#0077aa);
+      color:#fff;
+      padding:12px 10px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);
     }
 
-    .glow::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 140%;
-      height: 140%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, #44444455, #00000000 70%);
-      filter: blur(40px);
-      z-index: -1;
-      animation: pulse 6s ease-in-out infinite;
+    /* Top bar */
+    .topbar {
+      grid-column: 2 / 4;
+      height:72px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:0 8px;
     }
 
-    @keyframes pulse {
-      0%   { transform: translate(-50%, -50%) scale(1); }
-      50%  { transform: translate(-50%, -50%) scale(1.15); }
-      100% { transform: translate(-50%, -50%) scale(1); }
+    .logo {
+ width: 11.5%;border-radius:8px;object-fit:contain;
     }
 
-    /* === Fog Layer === */
-    .fog {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, #22222222, #00000000 70%);
-      filter: blur(60px);
-      animation: fogMove 40s linear infinite;
-      pointer-events: none;
-      z-index: 2;
+    .search {
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
     }
 
-    @keyframes fogMove {
-      0%   { transform: translate(-20%, -20%); }
-      50%  { transform: translate(0%, 0%); }
-      100% { transform: translate(-20%, -20%); }
+    .search input{
+      background:transparent;border:0;outline:none;color:#fff;font-size:15px;width:100%;
     }
 
-    /* === Content === */
-    img {
-      width: 80%;
-      max-width: 750px;
-      height: auto;
-      margin-bottom: 20px;
-      z-index: 3;
+    .nav-icons {
+      display:flex;gap:10px;align-items:center;
     }
 
-    h2 {
-      font-weight: 300;
-      color: #ccc;
-      margin-bottom: 40px;
-      z-index: 3;
+    .nav-icon {
+      padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;font-size:13px;color:var(--muted);
     }
 
-    .cta {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #0022ff;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      transition: 0.3s;
-      z-index: 3;
-      cursor: pointer;
+    /* Main content */
+    .main {
+      grid-column: 2 / 3;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px;
+      padding:18px;
+      overflow:auto;
     }
 
-    .cta:hover {
-      transform: scale(1.05);
+    .tabs {
+      display:flex;gap:10px;margin-bottom:14px;
+    }
+
+    .tab {
+      padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;color:var(--muted);
+    }
+
+    .tab.active { background: linear-gradient(90deg,var(--accent),#0077aa); color:#fff; font-weight:600; }
+
+    .controls {
+      display:flex;gap:10px;align-items:center;margin-bottom:12px;
+    }
+
+    .btn {
+      padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);cursor:pointer;color:var(--muted);border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .btn.primary { background:var(--accent); color:#000; font-weight:700; border:none; }
+
+    /* Grid of cards */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+      gap:16px;
+    }
+
+    .card {
+      background:var(--card);
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .thumb {
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      background:linear-gradient(180deg,#0b2a3a,#04202a);
+    }
+
+    .card-body {
+      padding:12px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .card-info {
+      flex:1;
+    }
+
+    .card-title { font-size:1.05rem; font-weight:700; margin-bottom:6px; }
+    .card-sub { color:var(--muted); font-size:0.85rem; margin-bottom:8px; }
+
+    .card-actions { display:flex; gap:8px; align-items:center; }
+
+    .play { background:var(--accent); color:#000; padding:8px 12px; border-radius:8px; cursor:pointer; border:none; font-weight:700; }
+    .info { background:rgba(255,255,255,0.03); color:var(--muted); padding:8px 10px; border-radius:8px; cursor:pointer; border:1px solid rgba(255,255,255,0.02); }
+
+    /* Right column play area */
+    .right {
+      grid-column: 3 / 4;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px;
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .play-frame {
+      flex:1;
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+      background:#000;
+    }
+
+    .play-frame iframe { width:100%; height:100%; border:0; display:block; }
+
+    .status-line { color:var(--muted); font-size:0.95rem; }
+
+    /* responsive */
+    @media (max-width:1100px){
+      .app{ grid-template-columns: 80px 1fr; grid-template-rows:72px 1fr 420px; }
+      .right{ grid-column:1 / -1; grid-row:3 / 4; }
+      .topbar{ grid-column:2 / 3; }
+      .sidebar{ grid-row:1 / 2; }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="fog"></div>
+  <div class="app">
 
-  <header>
-    <div class="glow">
-      <img src="logo.png" alt="RayGamix Logo">
+    <!-- Left sidebar -->
+    <div class="sidebar">
+      <a class="create-btn" href="#" onclick="createGame()">Create a game</a>
     </div>
-    <h2>The Future of Gaming Is Coming Soon</h2>
 
-    <!-- Button changes automatically -->
-    <a id="playButton" class="cta" onclick="buttonAction()">Notify Me on Release</a>
-  </header>
-  <script>
-    let released = false;
+    <!-- Topbar -->
+    <div class="topbar">
+      <img class="logo" src="https://raygamix.github.io/logo.png" alt="logo">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.7"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <input id="searchInput" placeholder="Search here for games!" oninput="applyFilters()" />
+      </div>
 
-    async function checkRelease() {
-      try {
-        const response = await fetch("https://raygamix.github.io/is-released.html", {
-          cache: "no-store"
-        });
+      <div class="nav-icons" style="margin-left:12px">
+        <div class="nav-icon" onclick="goHome()">Home</div>
+        <div class="nav-icon" onclick="forYou()">For You</div>
+        <div class="nav-icon" onclick="openSettings()">Settings</div>
+      </div>
+    </div>
 
-        const text = (await response.text()).trim();
+    <!-- Main content -->
+    <div class="main">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="tabs">
+            <div class="tab active" data-cat="all" onclick="setCategory('all', this)">All</div>
+            <div class="tab" data-cat="multiplayer" onclick="setCategory('multiplayer', this)">Multiplayer</div>
+            <div class="tab" data-cat="singleplayer" onclick="setCategory('singleplayer', this)">Singleplayer</div>
+            <div class="tab" data-cat="your" onclick="setCategory('your', this)">Your games</div>
+            <div class="tab" data-cat="foryou" onclick="setCategory('foryou', this)">For You</div>
+          </div>
+        </div>
 
-        if (text === "1") {
-          released = true;
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="btn" onclick="startScan()">Discover</div>
+          <div class="btn" onclick="stopScan()">Stop</div>
+          <div class="btn primary" onclick="loadMore()">Load more</div>
+        </div>
+      </div>
 
-          const btn = document.getElementById("playButton");
-          btn.textContent = "Play!";
-          btn.style.backgroundColor = "#00cc44"; // green
-        } else {
-          released = false;
+      <div class="status-line" id="scanStatus">Ready</div>
 
-          const btn = document.getElementById("playButton");
-          btn.textContent = "Notify me about current status of RayGamix";
-        }
+      <div class="grid" id="grid"></div>
+    </div>
 
-      } catch (error) {
-        console.log("Error checking release:", error);
+    <!-- Right play area -->
+    <div class="right">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">Play Area</div>
+        <div class="status-line" id="rightStatus">No world loaded</div>
+      </div>
+
+      <div class="play-frame" id="playFrame" style="height:100%;">
+        <!-- iframe inserted here -->
+      </div>
+    </div>
+
+  </div>
+
+<script>
+/*
+  Dynamic discovery scanner:
+  - Probes random IDs and fetches meta.json
+  - Adds unique worlds to the grid
+  - Configurable concurrency and tries
+*/
+
+const BASE = 'https://raygamix.github.io/games';
+const MAX_ID = 999999999;
+let scanning = false;
+let concurrency = 8;
+let triesPerBatch = 40;
+let discovered = new Map(); // id -> meta
+let activeCategory = 'all';
+let searchQuery = '';
+
+const grid = document.getElementById('grid');
+const scanStatus = document.getElementById('scanStatus');
+const rightStatus = document.getElementById('rightStatus');
+
+function setCategory(cat, el){
+  activeCategory = cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderGrid();
+}
+
+function applyFilters(){
+  searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+  renderGrid();
+}
+
+function createGame(){
+  alert('Create game flow placeholder');
+}
+
+function goHome(){ /* placeholder */ }
+function forYou(){ /* placeholder */ }
+function openSettings(){ alert('Settings placeholder'); }
+
+function makeCard(meta){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.id = meta.id;
+
+  const thumb = document.createElement('img');
+  thumb.className = 'thumb';
+  thumb.src = `${BASE}/${meta.id}/${meta.image}`;
+  thumb.alt = meta.name;
+  thumb.onerror = () => { thumb.src = 'https://raygamix.github.io/default-cover.png'; };
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  const info = document.createElement('div');
+  info.className = 'card-info';
+
+  const title = document.createElement('div');
+  title.className = 'card-title';
+  title.textContent = meta.name || `Game ${meta.id}`;
+
+  const sub = document.createElement('div');
+  sub.className = 'card-sub';
+  sub.textContent = `ID: ${meta.id} ${meta.tags ? ' • ' + meta.tags.join(', ') : ''}`;
+
+  const actions = document.createElement('div');
+  actions.className = 'card-actions';
+
+  const play = document.createElement('button');
+  play.className = 'play';
+  play.textContent = 'Play';
+  play.onclick = () => openInPlayArea(meta);
+
+  const infoBtn = document.createElement('button');
+  infoBtn.className = 'info';
+  infoBtn.textContent = 'Info';
+  infoBtn.onclick = () => showInfo(meta);
+
+  actions.appendChild(play);
+  actions.appendChild(infoBtn);
+
+  info.appendChild(title);
+  info.appendChild(sub);
+  body.appendChild(info);
+  body.appendChild(actions);
+
+  card.appendChild(thumb);
+  card.appendChild(body);
+
+  return card;
+}
+
+function renderGrid(){
+  grid.innerHTML = '';
+  const items = Array.from(discovered.values())
+    .filter(meta => {
+      if(activeCategory === 'multiplayer' && !(meta.tags||[]).includes('multiplayer')) return false;
+      if(activeCategory === 'singleplayer' && !(meta.tags||[]).includes('singleplayer')) return false;
+      if(activeCategory === 'your' && !(meta.owner && meta.owner === 'you')) return false;
+      if(activeCategory === 'foryou' && !(meta.recommended)) return false;
+      if(searchQuery){
+        const s = searchQuery;
+        return (meta.name && meta.name.toLowerCase().includes(s)) || String(meta.id).includes(s) || (meta.tags||[]).some(t=>t.includes(s));
       }
+      return true;
+    })
+    .sort((a,b)=> (a.name||'').localeCompare(b.name||''));
+
+  if(items.length === 0){
+    grid.innerHTML = '<div style="color:var(--muted);padding:20px">No worlds found yet. Click Discover or Load more.</div>';
+    return;
+  }
+
+  for(const meta of items){
+    grid.appendChild(makeCard(meta));
+  }
+}
+
+/* Play area */
+function openInPlayArea(meta){
+  rightStatus.textContent = `Loading ${meta.name || meta.id}...`;
+  const frame = document.createElement('iframe');
+  frame.src = `${BASE}/${meta.id}/${meta.entry}`;
+  frame.onload = () => { rightStatus.textContent = `Playing ${meta.name || meta.id}`; };
+  frame.onerror = () => { rightStatus.textContent = `Failed to load ${meta.id}`; };
+  const container = document.getElementById('playFrame');
+  container.innerHTML = '';
+  container.appendChild(frame);
+}
+
+/* Info modal (simple) */
+function showInfo(meta){
+  const info = `
+    Name: ${meta.name || meta.id}
+    ID: ${meta.id}
+    Tags: ${(meta.tags||[]).join(', ')}
+    Entry: ${meta.entry}
+  `;
+  alert(info);
+}
+
+/* Scanner logic */
+let workers = [];
+let stopRequested = false;
+
+function startScan(){
+  if(scanning) return;
+  scanning = true;
+  stopRequested = false;
+  scanStatus.textContent = 'Scanning for worlds...';
+  runScannerBatch();
+}
+
+function stopScan(){
+  stopRequested = true;
+  scanning = false;
+  scanStatus.textContent = 'Scan stopped';
+}
+
+/* Load more triggers another batch */
+function loadMore(){
+  if(!scanning) startScan();
+  else scanStatus.textContent = 'Already scanning...';
+}
+
+/* single probe */
+async function probeId(id){
+  const url = `${BASE}/${id}/meta.json`;
+  try{
+    const res = await fetch(url, {cache:'no-store'});
+    if(!res.ok) throw new Error('no');
+    const meta = await res.json();
+    // normalize meta
+    meta.id = meta.id ?? id;
+    meta.name = meta.name ?? `Game ${meta.id}`;
+    meta.image = meta.image ?? 'cover.png';
+    meta.entry = meta.entry ?? 'index.html';
+    meta.tags = meta.tags ?? [];
+    // dedupe
+    if(!discovered.has(String(meta.id))){
+      discovered.set(String(meta.id), meta);
+      renderGrid();
     }
+    return true;
+  }catch(e){
+    return false;
+  }
+}
 
-    function buttonAction() {
-      if (released) {
-        window.location.href = "https://raygamix.github.io/";
-      } else {
-        alert("RayGamix is not released yet.");
-      }
+/* run a batch of random probes with concurrency */
+async function runScannerBatch(){
+  const batch = triesPerBatch;
+  const concurrencyLocal = concurrency;
+  let active = 0;
+  let i = 0;
+
+  function next(){
+    if(stopRequested) return Promise.resolve();
+    if(i >= batch) return Promise.resolve();
+    i++;
+    const id = Math.floor(Math.random() * MAX_ID);
+    active++;
+    return probeId(id).finally(()=>{ active--; });
+  }
+
+  const runners = new Array(concurrencyLocal).fill(0).map(async ()=>{
+    while(!stopRequested && i < batch){
+      await next();
+      // small delay to avoid hammering
+      await new Promise(r=>setTimeout(r, 60));
     }
+  });
 
-    // Auto-check every 1 second
-    setInterval(checkRelease, 1000);
+  await Promise.all(runners);
+  scanning = false;
+  if(!stopRequested) scanStatus.textContent = `Scan finished. Found ${discovered.size} worlds.`;
+  else scanStatus.textContent = `Scan stopped. Found ${discovered.size} worlds.`;
+}
 
-    // Initial check
-    checkRelease();
-  </script>
+/* initial quick discovery */
+startScan();
 
+</script>
 </body>
 </html>
-

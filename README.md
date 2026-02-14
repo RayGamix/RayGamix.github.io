@@ -1,7 +1,10 @@
 # RayGamix 2026 – Full Platform Overview & Features
 
 **Version:** 1.0
+
 **Date:** February 12, 2026
+
+**Usage:** Frontend
 
 RayGamix is a fully interactive, social, and creative digital platform. Users can create, play, and explore games in a safe, moderated environment, with robust enforcement systems to protect the community.
 

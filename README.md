@@ -65,7 +65,7 @@ RayGamix is a fully interactive, social, and creative digital platform. Users ca
 - All games/images/assets are scanned before publishing.
 - Unsafe content is blocked; warnings are issued automatically.
 4. **Owner/Admin:**
-- `@RayGamix` can bypass chat filters but cannot bypass Scanned moderation.
+- Even `@RayGamix` cannot bypass Scanned moderation.
 
 
 

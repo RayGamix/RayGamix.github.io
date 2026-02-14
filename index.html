@@ -1,114 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8">
 <title>RayGamix Launcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-:root{--bg:#000;--panel:#071018;--card:#111;--muted:#9aa;--accent:#00b7ff;--accent-2:#0c6;--glass:rgba(255,255,255,0.03);--gap:16px;color-scheme:dark}html,body{height:100%;margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}.app{display:grid;grid-template-columns:220px 1fr 420px;grid-template-rows:72px 1fr;gap:var(--gap);height:100vh;padding:18px;box-sizing:border-box;align-items:start}.sidebar{grid-row:1/span 2;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;align-items:center}.create-btn{writing-mode:vertical-rl;transform:rotate(180deg);background:linear-gradient(180deg,var(--accent),#0077aa);color:#fff;padding:12px 10px;border-radius:10px;cursor:pointer;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.6)}.topbar{grid-column:2/4;height:72px;display:flex;align-items:center;gap:12px;padding:0 8px}.logo{width:11.5%;border-radius:8px;object-fit:contain}.search{flex:1;display:flex;align-items:center;gap:8px;background:var(--glass);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}.search input{background:transparent;border:0;outline:none;color:#fff;font-size:15px;width:100%}.nav-icons{display:flex;gap:10px;align-items:center}.nav-icon{padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;font-size:13px;color:var(--muted)}.main{grid-column:2/3;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-radius:12px;padding:18px;overflow:auto}.tabs{display:flex;gap:10px;margin-bottom:14px}.tab{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;color:var(--muted)}.tab.active{background:linear-gradient(90deg,var(--accent),#0077aa);color:#fff;font-weight:600}.btn{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);cursor:pointer;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}.btn.primary{background:var(--accent);color:#000;font-weight:700;border:none}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}.card{background:var(--card);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.02)}.thumb{width:100%;height:140px;object-fit:cover;background:linear-gradient(180deg,#0b2a3a,#04202a)}.card-body{padding:12px;display:flex;gap:12px;align-items:center}.card-info{flex:1}.card-title{font-size:1.05rem;font-weight:700;margin-bottom:6px}.card-sub{color:var(--muted);font-size:.85rem;margin-bottom:8px}.card-actions{display:flex;gap:8px;align-items:center}.play{background:var(--accent);color:#000;padding:8px 12px;border-radius:8px;cursor:pointer;border:none;font-weight:700}.info{background:rgba(255,255,255,0.03);color:var(--muted);padding:8px 10px;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}.right{grid-column:3/4;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:12px}.play-frame{flex:1;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:#000}.play-frame iframe{width:100%;height:100%;border:0;display:block}.status-line{color:var(--muted);font-size:.95rem}footer{grid-column:1/-1;text-align:center;color:var(--muted);margin-top:12px;font-size:.85rem}@media(max-width:1100px){.app{grid-template-columns:80px 1fr;grid-template-rows:72px 1fr 420px}.right{grid-column:1/-1;grid-row:3/4}.topbar{grid-column:2/3}.sidebar{grid-row:1/2}}
-.search{width:50px;}
+:root{
+--bg:#000;
+--panel:#071018;
+--card:#111;
+--muted:#9aa;
+--accent:#00b7ff;
+--accent-2:#0c6;
+--glass:rgba(255,255,255,0.03);
+--gap:16px;
+color-scheme:dark
+}
+
+html,body{
+height:100%;
+margin:0;
+background:var(--bg);
+color:#fff;
+font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif
+}
+
+.app{
+display:grid;
+grid-template-columns:220px 1fr;
+grid-template-rows:72px 1fr;
+gap:var(--gap);
+height:100vh;
+padding:18px;
+box-sizing:border-box;
+align-items:start
+}
+
+.sidebar{
+grid-row:1/span 2;
+background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+border-radius:12px;
+padding:18px;
+display:flex;
+flex-direction:column;
+gap:12px;
+align-items:center
+}
+
+.create-btn{
+writing-mode:vertical-rl;
+transform:rotate(180deg);
+background:linear-gradient(180deg,var(--accent),#0077aa);
+color:#fff;
+padding:12px 10px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 6px 18px rgba(0,0,0,0.6)
+}
+
+.topbar{
+grid-column:2/3;
+height:72px;
+display:flex;
+align-items:center;
+gap:12px;
+padding:0 8px
+}
+
+.logo{
+width:11.5%;
+border-radius:8px;
+object-fit:contain
+}
+
+.search{
+flex:1;
+display:flex;
+align-items:center;
+gap:8px;
+background:var(--glass);
+padding:10px 12px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.03)
+}
+
+.search svg{
+width:18px;
+height:18px;
+stroke:var(--accent)
+}
+
+.search input{
+background:transparent;
+border:0;
+outline:none;
+color:#fff;
+font-size:15px;
+width:100%
+}
+
+.nav-icons{
+display:flex;
+gap:10px;
+align-items:center
+}
+
+.nav-icon{
+padding:8px;
+border-radius:8px;
+background:rgba(255,255,255,0.02);
+cursor:pointer;
+font-size:13px;
+color:var(--muted)
+}
+
+.main{
+grid-column:2/3;
+background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+border-radius:12px;
+padding:18px;
+overflow:auto
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:16px
+}
+
+.card{
+background:var(--card);
+border-radius:12px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.02)
+}
+
+.thumb{
+width:100%;
+height:140px;
+background:linear-gradient(180deg,#0b2a3a,#04202a)
+}
+
+.card-body{
+padding:12px;
+display:flex;
+gap:12px;
+align-items:center
+}
+
+.card-info{flex:1}
+.card-title{font-weight:700;margin-bottom:6px}
+.card-sub{color:var(--muted);font-size:.85rem}
+
+.play{
+background:var(--accent);
+color:#000;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+border:none;
+font-weight:700
+}
+
+.dropdown{
+position:relative;
+}
+.dropdown-content{
+display:none;
+position:absolute;
+top:36px;
+left:0;
+background:var(--panel);
+border-radius:8px;
+padding:8px;
+max-height:200px;
+overflow:auto;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+z-index:100;
+}
+.dropdown:hover .dropdown-content{
+display:block;
+}
+.dropdown-content div{
+padding:4px 8px;
+cursor:pointer;
+border-radius:4px;
+color:#fff;
+}
+.dropdown-content div:hover{background:rgba(255,255,255,0.1);}
+
+/* Footer styling */
+.footer {
+grid-column: 1 / -1;
+text-align: center;
+color: var(--muted);
+font-size: 0.85rem;
+margin-top: 12px;
+padding: 8px 0;
+border-top: 1px solid rgba(255,255,255,0.05);
+background: rgba(0,0,0,0.1);
+border-radius: 8px;
+font-family: Inter, system-ui, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 6px;
+}
+
 </style>
 </head>
 <body>
-<div class="app">
-  <div class="sidebar"><a class="create-btn" href="#" onclick="createGame()"></a></div>
-  <div class="topbar">
-    <img class="logo" src="https://raygamix.github.io/logo.png" alt="logo">
-    <div class="search"><img src="https://raygamix.github.io/search.png" alt="Search Icon"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><input id="searchInput" oninput="applyFilters()"/></div>
-    <div class="nav-icons" style="margin-left:12px"><div class="nav-icon" onclick="goHome()"></div><div class="nav-icon" onclick="forYou()"></div><div class="nav-icon" onclick="openSettings()"></div></div>
-    <select id="languageSelect" onchange="setLanguage(this.value)" style="margin-left:12px;background:#111;color:#fff;border:1px solid #333;padding:6px;border-radius:6px">
-      <option value="enUS">🌐🗣️ English (US)</option>
-      <option value="enUK">🌐🗣️ English (UK)</option>
-      <option value="de">🌐🗣️ German</option>
-      <option value="fa">🌐🗣️ Persian</option>
-      <option value="th">🌐🗣️ Thai</option>
-      <option value="hi">🌐🗣️ Hindi</option>
-      <option value="zh">🌐🗣️ Chinese</option>
-      <option value="ko">🌐🗣️ Korean</option>
-      <option value="ja">🌐🗣️ Japanese</option>
-      <option value="nl">🌐🗣️ Dutch</option>
-      <option value="nlBE">🌐🗣️ Dutch (Belgium)</option>
-      <option value="es">🌐🗣️ Spanish</option>
-      <option value="fr">🌐🗣️ French</option>
-      <option value="it">🌐🗣️ Italian</option>
-      <option value="pt">🌐🗣️ Portuguese</option>
-      <option value="ru">🌐🗣️ Russian</option>
-    </select>
-  </div>
-  <div class="main">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="tabs">
-          <div class="tab active" data-cat="all" onclick="setCategory('all',this)"></div>
-          <div class="tab" data-cat="multiplayer" onclick="setCategory('multiplayer',this)"></div>
-          <div class="tab" data-cat="singleplayer" onclick="setCategory('singleplayer',this)"></div>
-          <div class="tab" data-cat="your" onclick="setCategory('your',this)"></div>
-        </div>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <div class="btn" onclick="startScan()"></div>
-        <div class="btn" onclick="stopScan()"></div>
-        <div class="btn primary" onclick="loadMore()"></div>
-      </div>
-    </div>
-    <div class="status-line" id="scanStatus"></div>
-    <div class="grid" id="grid"></div>
-  </div>
-  <div class="right">
-    <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:700">Play Area</div><div class="status-line" id="rightStatus">No world loaded</div></div>
-    <div class="play-frame" id="playFrame" style="height:100%;"></div>
-  </div>
-  <footer id="footer"></footer>
+
+<div class="app" id="app">
+
+<div class="sidebar">
+<a class="create-btn">CREATE</a>
+<button onclick="login()">Login</button>
+<button onclick="signup()">Sign Up</button>
+<button onclick="logout()">Sign Out</button>
+<div id="userDisplay" style="font-size:12px;color:#9aa;"></div>
+<div id="stats" style="font-size:12px;color:#9aa;"></div>
+</div>
+
+<div class="topbar">
+<img class="logo" src="https://raygamix.github.io/logo.png">
+
+<div class="search">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+<circle cx="11" cy="11" r="7"></circle>
+<line x1="16" y1="16" x2="22" y2="22"></line>
+</svg>
+<input placeholder="Search...">
+</div>
+
+<div class="nav-icons">
+<div class="dropdown">
+<div class="nav-icon">🌐 Languages</div>
+<div class="dropdown-content" id="langList"></div>
+</div>
+<div class="dropdown">
+<div class="nav-icon">🎨 Color</div>
+<div class="dropdown-content">
+HEX: <input type="text" id="colorHex" placeholder="#00b7ff"><br>
+RGB: <input type="text" id="colorRgb" placeholder="0,183,255"><br>
+<button onclick="changeColor()">Apply</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="main" id="main">
+<div class="grid" id="grid"></div>
+</div>
+
+<footer class="footer">
+Made by Raybod - Hergestellt von Raybod
+</footer>
+
 </div>
 
 <script>
-const BACKEND_URL='N/A',MAX_ID=999999999;let scanning=false,concurrency=8,triesPerBatch=40,discovered=new Map(),activeCategory='all',searchQuery='',currentLang='enUS';
-const grid=document.getElementById('grid'),scanStatus=document.getElementById('scanStatus'),rightStatus=document.getElementById('rightStatus'),footer=document.getElementById('footer');
-const translations={
-enUS:{create:"Create",search:"Search...",home:"Home",foryou:"For You",settings:"Settings",all:"All",multiplayer:"Multiplayer",singleplayer:"Singleplayer",your:"Your",discover:"Discover",stop:"Stop",load:"Load More",ready:"Ready",scanning:"Scanning...",stopped:"Stopped",loadingMore:"Loading more...",noWorlds:"No worlds found.",play:"Play",info:"Info",loading:"Loading",playing:"Playing",failed:"Failed to load"},
-enUK:{...this.enUS},de:{create:"Erstellen",search:"Suchen...",home:"Startseite",foryou:"Für dich",settings:"Einstellungen",all:"Alle",multiplayer:"Mehrspieler",singleplayer:"Einzelspieler",your:"Deine",discover:"Entdecken",stop:"Stop",load:"Mehr laden",ready:"Bereit",scanning:"Scanne...",stopped:"Gestoppt",loadingMore:"Mehr laden...",noWorlds:"Keine Welten gefunden.",play:"Spielen",info:"Info",loading:"Lade",playing:"Spielt",failed:"Fehler beim Laden"},
-fa:{create:"ایجاد",search:"جستجو...",home:"خانه",foryou:"برای شما",settings:"تنظیمات",all:"همه",multiplayer:"چند نفره",singleplayer:"تک نفره",your:"شما",discover:"کاوش",stop:"توقف",load:"بارگذاری بیشتر",ready:"آماده",scanning:"در حال اسکن...",stopped:"توقف شد",loadingMore:"بارگذاری بیشتر...",noWorlds:"هیچ دنیایی یافت نشد.",play:"بازی",info:"اطلاعات",loading:"در حال بارگذاری",playing:"در حال بازی",failed:"بارگذاری شکست خورد"},
-th:{create:"สร้าง",search:"ค้นหา...",home:"หน้าแรก",foryou:"เพื่อคุณ",settings:"การตั้งค่า",all:"ทั้งหมด",multiplayer:"ผู้เล่นหลายคน",singleplayer:"ผู้เล่นคนเดียว",your:"ของคุณ",discover:"ค้นหา",stop:"หยุด",load:"โหลดเพิ่มเติม",ready:"พร้อม",scanning:"กำลังสแกน...",stopped:"หยุดแล้ว",loadingMore:"โหลดเพิ่ม...",noWorlds:"ไม่พบโลก",play:"เล่น",info:"ข้อมูล",loading:"กำลังโหลด",playing:"กำลังเล่น",failed:"โหลดไม่สำเร็จ"},
-hi:{create:"बनाएँ",search:"खोजें...",home:"होम",foryou:"आपके लिए",settings:"सेटिंग्स",all:"सभी",multiplayer:"मल्टीप्लेयर",singleplayer:"सिंगलप्लेयर",your:"आपका",discover:"खोज",stop:"रोकें",load:"और लोड करें",ready:"तैयार",scanning:"स्कैन कर रहा है...",stopped:"रोक दिया गया",loadingMore:"और लोड कर रहे हैं...",noWorlds:"कोई दुनिया नहीं मिली",play:"खेलें",info:"जानकारी",loading:"लोड हो रहा है",playing:"खेल रहे हैं",failed:"लोड विफल"},
-zh:{create:"创建",search:"搜索...",home:"首页",foryou:"为你推荐",settings:"设置",all:"所有",multiplayer:"多人游戏",singleplayer:"单人游戏",your:"你的",discover:"发现",stop:"停止",load:"加载更多",ready:"准备就绪",scanning:"扫描中...",stopped:"已停止",loadingMore:"加载更多...",noWorlds:"未找到世界",play:"开始",info:"信息",loading:"加载中",playing:"游戏中",failed:"加载失败"},
-ko:{create:"만들기",search:"검색...",home:"홈",foryou:"추천",settings:"설정",all:"전체",multiplayer:"멀티플레이",singleplayer:"싱글플레이",your:"내 것",discover:"검색",stop:"중지",load:"더 불러오기",ready:"준비",scanning:"스캔 중...",stopped:"중지됨",loadingMore:"더 불러오는 중...",noWorlds:"세계 없음",play:"플레이",info:"정보",loading:"로딩 중",playing:"플레이 중",failed:"실패"},
-ja:{create:"作成",search:"検索...",home:"ホーム",foryou:"おすすめ",settings:"設定",all:"すべて",multiplayer:"マルチプレイヤー",singleplayer:"シングルプレイヤー",your:"あなたの",discover:"検索",stop:"停止",load:"もっと読み込む",ready:"準備完了",scanning:"スキャン中...",stopped:"停止",loadingMore:"さらに読み込み...",noWorlds:"ワールドが見つかりません",play:"プレイ",info:"情報",loading:"読み込み中",playing:"プレイ中",failed:"読み込み失敗"},
-nl:{create:"Maken",search:"Zoeken...",home:"Home",foryou:"Voor jou",settings:"Instellingen",all:"Alles",multiplayer:"Multiplayer",singleplayer:"Singleplayer",your:"Jouw",discover:"Ontdekken",stop:"Stop",load:"Meer laden",ready:"Klaar",scanning:"Scannen...",stopped:"Gestopt",loadingMore:"Meer laden...",noWorlds:"Geen werelden gevonden",play:"Spelen",info:"Info",loading:"Laden",playing:"Spelen",failed:"Mislukt"},
-nlBE:{...this.nl},es:{create:"Crear",search:"Buscar...",home:"Inicio",foryou:"Para ti",settings:"Ajustes",all:"Todos",multiplayer:"Multijugador",singleplayer:"Un jugador",your:"Tus",discover:"Descubrir",stop:"Detener",load:"Cargar más",ready:"Listo",scanning:"Escaneando...",stopped:"Detenido",loadingMore:"Cargando más...",noWorlds:"No se encontraron mundos",play:"Jugar",info:"Info",loading:"Cargando",playing:"Jugando",failed:"Error"},
-fr:{create:"Créer",search:"Rechercher...",home:"Accueil",foryou:"Pour vous",settings:"Paramètres",all:"Tous",multiplayer:"Multijoueur",singleplayer:"Solo",your:"Votre",discover:"Découvrir",stop:"Arrêter",load:"Charger plus",ready:"Prêt",scanning:"Analyse...",stopped:"Arrêté",loadingMore:"Chargement...",noWorlds:"Aucun monde trouvé",play:"Jouer",info:"Info",loading:"Chargement",playing:"En cours",failed:"Échec"},
-it:{create:"Crea",search:"Cerca...",home:"Home",foryou:"Per te",settings:"Impostazioni",all:"Tutti",multiplayer:"Multigiocatore",singleplayer:"Singolo",your:"Tuo",discover:"Scopri",stop:"Ferma",load:"Carica altro",ready:"Pronto",scanning:"Scansione...",stopped:"Fermato",loadingMore:"Caricamento...",noWorlds:"Nessun mondo trovato",play:"Gioca",info:"Info",loading:"Caricamento",playing:"In gioco",failed:"Fallito"},
-pt:{create:"Criar",search:"Pesquisar...",home:"Início",foryou:"Para você",settings:"Configurações",all:"Todos",multiplayer:"Multijogador",singleplayer:"Singleplayer",your:"Seu",discover:"Descobrir",stop:"Parar",load:"Carregar mais",ready:"Pronto",scanning:"Verificando...",stopped:"Parado",loadingMore:"Carregando mais...",noWorlds:"Nenhum mundo encontrado",play:"Jogar",info:"Info",loading:"Carregando",playing:"Jogando",failed:"Falhou"},
-ru:{create:"Создать",search:"Поиск...",home:"Главная",foryou:"Для вас",settings:"Настройки",all:"Все",multiplayer:"Мультиплеер",singleplayer:"Одиночная игра",your:"Ваши",discover:"Обзор",stop:"Стоп",load:"Загрузить ещё",ready:"Готово",scanning:"Сканирование...",stopped:"Остановлено",loadingMore:"Загрузка...",noWorlds:"Миров не найдено",play:"Играть",info:"Инфо",loading:"Загрузка",playing:"Играем",failed:"Ошибка"}};
+const BACKEND_URL="N/A";
+let currentUser=null;
+const languages=[
+"English","Spanish","Mandarin Chinese","Hindi","Arabic","Bengali","Portuguese","Russian",
+"Japanese","Punjabi","German","Javanese","Wu (Shanghainese)","Malay / Indonesian","Telugu",
+"Vietnamese","Korean","French","Tamil","Marathi","Urdu","Turkish","Italian","Thai","Gujarati",
+"Persian (Farsi)","Bhojpuri","Min Nan (Hokkien/Taiwanese)","Hakka","Jin","Hausa","Kannada",
+"Oriya (Odia)","Burmese (Myanmar)","Sunda","Yoruba","Amharic","Fula (Fulani)","Romanian","Oromo",
+"Igbo","Azerbaijani (Azeri)","Maithili","Uzbek","Sindhi","Nepali","Sinhala (Sinhalese)","Khmer (Cambodian)",
+"Turkmen","Pashto"
+];
 
-function t(k){return translations[currentLang][k]||translations.enUS[k]||k}
+function generateGuest(){
+const d=new Date();
+const pad=n=>n.toString().padStart(2,"0");
+return "@GuestUser"+pad(d.getDate())+pad(d.getMonth()+1)+d.getFullYear()+pad(d.getHours())+pad(d.getMinutes());
+}
 
-function setLanguage(l){currentLang=l;document.documentElement.lang=l;document.documentElement.dir=l==='fa'?'rtl':'ltr';document.querySelector('.create-btn').textContent=t('create');document.getElementById('searchInput').placeholder=t('search');const n=document.querySelectorAll('.nav-icon');n[0].textContent=t('home');n[1].textContent=t('foryou');n[2].textContent=t('settings');['all','multiplayer','singleplayer','your'].forEach(c=>document.querySelector(`[data-cat="${c}"]`).textContent=t(c));const b=document.querySelectorAll('.btn');b[0].textContent=t('discover');b[1].textContent=t('stop');document.querySelector('.btn.primary').textContent=t('load');scanStatus.textContent=t('ready');footer.textContent='Made by Raybod - Hergestellt von Raybod️';renderGrid()}
+function login(){
+if(BACKEND_URL==="N/A"){
+let u=prompt("Username:","GuestUser");
+let p=prompt("Password:");
+currentUser=u+" (guest: "+p+")";
+updateUser(true);
+}else{
+currentUser=prompt("Username:");
+updateUser(false);
+}
+}
 
-const browserLang=navigator.language||navigator.userLanguage;if(translations[browserLang])setLanguage(browserLang);else if(browserLang.startsWith('en'))setLanguage('enUS');else setLanguage('enUS');
+function signup(){
+let type=prompt("Signup as:\n1. Guest\n2. User\nEnter 1 or 2","1");
+if(type==="1"){currentUser=generateGuest(); updateUser(true);}
+else login();
+}
 
-function setCategory(c,el){activeCategory=c;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');renderGrid()}
-function applyFilters(){searchQuery=document.getElementById('searchInput').value.trim().toLowerCase();renderGrid()}
-function createGame(){alert('Create game flow placeholder')}
-function goHome(){}
-function forYou(){}
-function openSettings(){alert('Settings placeholder')}
+function logout(){
+currentUser=null;
+document.getElementById("userDisplay").innerText="";
+document.getElementById("stats").innerText="";
+}
 
-function makeCard(m){const c=document.createElement('div');c.className='card';c.dataset.id=m.id;const i=document.createElement('img');i.className='thumb';i.src=`${BACKEND_URL}/${m.id}/${m.image||'cover.png'}`;i.alt=m.name;i.onerror=()=>{i.src=`${BACKEND_URL}/default-cover.png`};const b=document.createElement('div');b.className='card-body';const inf=document.createElement('div');inf.className='card-info';const t1=document.createElement('div');t1.className='card-title';t1.textContent=m.name||`Game ${m.id}`;const t2=document.createElement('div');t2.className='card-sub';t2.textContent=`ID: ${m.id}${m.tags?' • '+m.tags.join(','):''}`;const a=document.createElement('div');a.className='card-actions';const p=document.createElement('button');p.className='play';p.textContent=t('play');p.onclick=()=>openInPlayArea(m);const infoBtn=document.createElement('button');infoBtn.className='info';infoBtn.textContent=t('info');infoBtn.onclick=()=>showInfo(m);a.append(p,infoBtn);inf.append(t1,t2);b.append(inf,a);c.append(i,b);return c}
+function updateUser(fake){
+document.getElementById("userDisplay").innerText=currentUser;
+if(fake){
+let games=Math.floor(Math.random()*100);
+let wins=Math.floor(Math.random()*games);
+document.getElementById("stats").innerHTML="Games: "+games+"<br>Wins: "+wins+"<br>Offline Guest";
+}
+}
 
-function renderGrid(){grid.innerHTML='';const items=Array.from(discovered.values()).filter(m=>{if(activeCategory==='multiplayer'&&!m.tags?.includes('multiplayer'))return false;if(activeCategory==='singleplayer'&&!m.tags?.includes('singleplayer'))return false;if(activeCategory==='your'&&m.owner!=='you')return false;if(searchQuery){const s=searchQuery;return(m.name?.toLowerCase().includes(s))||String(m.id).includes(s)||m.tags?.some(x=>x.includes(s))}return true}).sort((a,b)=>(a.name||'').localeCompare(b.name||''));if(items.length===0){grid.innerHTML=`<div style="color:var(--muted);padding:20px">${t('noWorlds')}</div>`;return}items.forEach(m=>grid.appendChild(makeCard(m)))}
+function renderGames(){
+const grid=document.getElementById("grid");
+for(let i=1;i<=12;i++){
+grid.innerHTML+=`
+<div class="card">
+<div class="thumb"></div>
+<div class="card-body">
+<div class="card-info">
+<div class="card-title">Game ${i}</div>
+<div class="card-sub">Multiplayer</div>
+</div>
+<button class="play" onclick="joinGame(${i})">Play</button>
+</div>
+</div>`;
+}
+}
 
-function openInPlayArea(m){rightStatus.textContent=`${t('loading')} ${m.name||m.id}...`;const f=document.createElement('iframe');f.src=`${BACKEND_URL}/${m.id}/${m.entry||'index.html'}`;f.onload=()=>{rightStatus.textContent=`${t('playing')} ${m.name||m.id}`};f.onerror=()=>{rightStatus.textContent=`${t('failed')} ${m.id}`};const c=document.getElementById('playFrame');c.innerHTML='';c.appendChild(f)}
-function showInfo(m){alert(`Name: ${m.name||m.id}\nID: ${m.id}\nTags: ${(m.tags||[]).join(', ')}\nEntry: ${m.entry}`)}
+function joinGame(id){
+const app=document.getElementById("app");
+const main=document.getElementById("main");
+main.remove();
 
-async function probeId(id){try{const r=await fetch(`${BACKEND_URL}/${id}/meta.json`,{cache:'no-store'});if(!r.ok)throw 0;const m=await r.json();m.id=m.id??id;m.name=m.name??`Game ${m.id}`;m.image=m.image??'cover.png';m.entry=m.entry??'index.html';m.tags=m.tags??[];if(!discovered.has(String(m.id))){discovered.set(String(m.id),m);renderGrid()}return true}catch(e){return false}}
+const gamePanel=document.createElement("div");
+gamePanel.className="main";
+gamePanel.style.height="calc(100vh - 72px - 36px)"; // keep topbar height
+gamePanel.innerHTML=`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#9aa;">Game ${id} loaded</div>`;
+app.appendChild(gamePanel);
+}
 
-async function runScannerBatch(){let i=0;function next(){if(i>=triesPerBatch)return Promise.resolve();i++;const id=Math.floor(Math.random()*MAX_ID);return probeId(id).finally(()=>{})}await Promise.all(new Array(concurrency).fill(0).map(async()=>{while(i<triesPerBatch){await next();await new Promise(r=>setTimeout(r,10))}}));scanStatus.textContent=t('ready')}
+// Populate languages
+const langList=document.getElementById("langList");
+languages.forEach(l=>{
+let div=document.createElement("div");
+div.innerText=l;
+div.onclick=()=>alert("Language changed to "+l);
+langList.appendChild(div);
+});
 
-function startScan(){if(scanning)return;scanning=true;scanStatus.textContent=t('scanning');runScannerBatch().finally(()=>scanning=false)}
-function stopScan(){scanning=false;scanStatus.textContent=t('stopped')}
-function loadMore(){triesPerBatch+=20;scanStatus.textContent=t('loadingMore');runScannerBatch()}
+// Color change
+function changeColor(){
+let hex=document.getElementById("colorHex").value;
+let rgb=document.getElementById("colorRgb").value;
+if(hex){document.documentElement.style.setProperty('--bg',hex);}
+else if(rgb){document.documentElement.style.setProperty('--bg','rgb('+rgb+')');}
+// Invert white color
+let bgColor=getComputedStyle(document.documentElement).getPropertyValue('--bg');
+let r=parseInt(bgColor.slice(1,3),16);
+let g=parseInt(bgColor.slice(3,5),16);
+let b=parseInt(bgColor.slice(5,7),16);
+let inv=`rgb(${255-r},${255-g},${255-b})`;
+document.documentElement.style.setProperty('--muted',inv);
+}
 
-setLanguage(currentLang);
+renderGames();
 </script>
 </body>
 </html>

@@ -46,9 +46,9 @@ RayGamix is a fully interactive, social, and creative digital platform. Users ca
 - Game creation, discovery, and search are fully integrated with backend.
 
 ### 7. Cross-Platform Support
-- **Modern OS:** Windows 7–11, macOS 10.0+, Linux 3.10+
-- **Legacy OS:** Windows 95–Vista, Mac OS 7–10.5, Linux 2.2–3.9
-- **Terminal/DOS:** Windows NT 1–3.51, MS-DOS, FreeDOS, Mac OS 1–2, Linux 1.x–2.x
+- **Modern OS:** Windows 7–11, macOS 10.0+, Linux 3.10+; [open RayGamix for this platform](https://raygamix.github.io)
+- **Legacy OS:** Windows 95–Vista, Mac OS 7–10.5, Linux 2.2–3.9; [open RayGamix for this platform](https://raygamix.github.io/legacy-raygamix.html)
+- **Terminal/DOS:** Windows NT 1–3.51, MS-DOS, FreeDOS, Mac OS 1–2, Linux 1.x–2.x; [run RayGamix for this platform (visit the link to know how)](https://raygamix.github.io/#)
 
 ### 8. Feedback & Community
 - Users encouraged to submit suggestions for ongoing evolution.

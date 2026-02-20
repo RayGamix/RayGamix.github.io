@@ -8,7 +8,6 @@
     * { box-sizing: border-box; }
 
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
     }
@@ -49,7 +48,6 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 40px 0;
       background: radial-gradient(circle at top left, #1f2937, #020617);
       border-radius: 16px;
     }
@@ -69,18 +67,8 @@
     }
 
     .hero1-left { flex: 1; }
-
-    .hero1-divider {
-      width: 2px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .hero1-right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
+    .hero1-divider { width: 2px; background: rgba(255,255,255,0.2); }
+    .hero1-right { flex: 1; display: flex; flex-direction: column; }
 
     .download-btn {
       margin-top: 15px;
@@ -93,24 +81,57 @@
       cursor: pointer;
       background: radial-gradient(circle at top left, #0ca, #775bff);
       text-align: center;
-      display: inline-block;
       width: 100%;
-      transition: transform 0.5s ease, filter 0.5s ease, background 0.5s ease, color 0.5s ease;
-      transform-origin: center;
+      transition: 1.25s ease;
     }
 
-    .download-btn:hover {
-      filter: brightness(75%);
+    .download-btn:hover { filter: brightness(75%); }
+
+    /* -------------------------------------- */
+    /*   THE GAME BUILT TO BE (STYLED BOX)    */
+    /* -------------------------------------- */
+    .TheGameBuiltToBe {
+      margin-top: 15px;
+      padding: 20px 30px;
+      background: radial-gradient(circle at top left, #0ca, #775bff);
+      border-radius: 10px;
+      width: 100%;
+      height: 110px;
+
+      display: flex;
+      align-items: center;       /* vertical center */
+      justify-content: center;   /* horizontal center */
+
       color: #000;
+      font-size: 3.20rem;
+      font-weight: 800;
+
+      overflow: hidden;
     }
 
-    h1 { margin: 0 0 16px 0; font-size: 2rem; line-height: 1.2; }
-    p { margin: 0 0 16px; line-height: 1.6; }
-    ul { margin: 0 0 20px 18px; padding: 0; }
-    li { margin-bottom: 6px; }
-    a { color: #38bdf8; text-decoration: none; word-break: break-all; }
-    a:hover { text-decoration: underline; }
-    .notcentered{position:relative;}
+    /* -------------------------------------- */
+    /*   UNLIMITED WORD SLIDER (CHROME STYLE) */
+    /* -------------------------------------- */
+    .word-slider {
+      height: 6.4rem; /* double height = blank line effect */
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .word-slider-inner {
+      display: flex;
+      flex-direction: column;
+      animation: autoSlide linear infinite;
+    }
+
+    .word-slider-inner span {
+      height: 6.4rem; /* same as slider height */
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+    }
+
+    @keyframes autoSlide {}
   </style>
 </head>
 
@@ -128,11 +149,25 @@
     <section class="hero">
       <section class="hero1">
 
+        <!-- ⭐ FIXED: TEXT + SLIDER INSIDE THE GLOWING BOX -->
+        <div class="TheGameBuiltToBe">
+          <span>The game built to be</span>
+
+          <div class="word-slider" style="margin-left: 12px;">
+            <div class="word-slider-inner" id="slider">
+              <span>fun.</span>
+              <span>secure.</span>
+              <span>customizable.</span>
+              <span>lightweight.</span>
+              <span>fast.</span>
+              <span>open-source.</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero1-content">
 
           <div class="hero1-left">
-            <h1>Welcome to RayGamix — a new gaming universe!</h1>
-
             <p>Jump in instantly — <strong>no account needed</strong>.</p>
 
             <ul>
@@ -175,7 +210,7 @@
 
 
 <!-- PAGE 2 -->
-<div id="page2" style="display:none; padding:40px; text-align:center;">
+<div id="page2" style="display:none; text-align:center;">
 
   <div class="empty">
     <img class="logo" src="https://raygamix.github.io/logo.png">
@@ -186,15 +221,48 @@
       <h1>Download Successful!</h1>
       <p>Thank you for downloading RayGamix!</p>
       <p>Have fun exploring the universe!</p>
-      <div class="notcentered">
-          <li>Note that on Browsers (e.g. Google Chrome, Microsoft Edge, Internet Explorer 7+, ...) that the ".exe" file will show as "not safe" or "not frequently downloaded". Do not be worried, as the RayGamix Setup file is <strong>not a virus</strong>. Just click the three dots, then:</li>
-      <li><strong>Keep</strong></li>...or <br>
-      <li><strong>Report this file as Safe</strong>.</li>
-      </div>
-    </div>
-  </div>
 
+      <a class="download-btn" href="https://archive.org/download/RayGamix-Setup-Version-1-0-0-x64.exe/RayGamix-Setup-1.0.0-x64.exe">
+        Download not starting? Click here to manually download RayGamix!
+      </a>
+    </div>
+
+  </div>
 </div>
+
+
+<!-- ⭐ DYNAMIC WORD SLIDER SCRIPT -->
+<script>
+  const slider = document.getElementById("slider");
+  const words = slider.children.length;
+  const wordHeight = slider.children[0].offsetHeight;
+
+  const pause = 1.75; // seconds to WAIT on each word
+  const scrollTime = 0.5; // seconds to SCROLL
+  const totalTime = words * (pause + scrollTime);
+
+  let keyframes = "@keyframes autoSlide {";
+
+  for (let i = 0; i < words; i++) {
+    const start = (i / words) * 100;
+    const mid = start + (pause / totalTime) * 100;
+    const end = ((i + 1) / words) * 100;
+
+    keyframes += `
+      ${start}% { transform: translateY(-${i * wordHeight}px); }
+      ${mid}% { transform: translateY(-${i * wordHeight}px); }
+      ${end}% { transform: translateY(-${(i + 1) % words * wordHeight}px); }
+    `;
+  }
+
+  keyframes += "}";
+
+  const style = document.createElement("style");
+  style.innerHTML = keyframes;
+  document.head.appendChild(style);
+
+  slider.style.animationDuration = totalTime + "s";
+</script>
 
 
 <script>

@@ -48,7 +48,7 @@ RayGamix is a fully interactive, social, and creative digital platform. Users ca
 ### 7. Cross-Platform Support
 - **Modern OS:** Windows 7–11, macOS 10.0+, Linux 3.10+; [open RayGamix for this platform](https://raygamix.github.io)
 - **Legacy OS:** Windows 95–Vista, Mac OS 7–10.5, Linux 2.2–3.9; [open RayGamix for this platform](https://raygamix.github.io/legacy-raygamix.html)
-- **Terminal/DOS:** Windows NT 1–3.51, MS-DOS, FreeDOS, Mac OS 1–2, Linux 1.x–2.x; [run RayGamix for this platform (visit the link to know how)](https://raygamix.github.io/#)
+- **Terminal/DOS:** Windows NT 1–3.51, MS-DOS, FreeDOS, Mac OS 1–2, Linux 1.x–2.x; [run RayGamix for this platform (visit the link to know how)](https://raygamix.github.io#placeholder)
 
 ### 8. Feedback & Community
 - Users encouraged to submit suggestions for ongoing evolution.
@@ -68,7 +68,7 @@ RayGamix is a fully interactive, social, and creative digital platform. Users ca
 - All games/images/assets are scanned before publishing.
 - Unsafe content is blocked; warnings are issued automatically.
 4. **Owner/Admin:**
-- Even `@RayGamix` cannot bypass Scanned moderation.
+- Even "@RayGamix" cannot bypass Scanned moderation.
 
 
 

@@ -1,0 +1,506 @@
+<!-- 
+RayGamix Version: 1.1.1
+Published on: 21:00 UTC, 13/03/2026 
+Official: Yes [RayGamix Official: Approved] 
+%RayGamix%/HowDoIProveIfRayGamixIsOfficial 
+Current Website: https://raygamix.github.io 
+RayGamix ExtendedInfo: RayGamix.1-1-1.FeatureUPD1.BugFix1.ForVerification-"1-1-2100130326-1-s-rg-io' 
+RayGamix Info: RayGamix Version 1.1.1 
+"1".1.1: This means what release RayGamix is 
+1."1".1: This means what Feature Update RayGamix is 
+1.1."1": This means what Bugfix RayGamix is
+Keep safe. Do not purchase this item, as it is free. 
+"Never give up. You can do it." 
+- The RayGamix Team 
+-->
+<!DOCTYPE html>
+<html style="height: 100%;"><plasmo-csui id="g0-widget"></plasmo-csui><plasmo-csui id="g0-ratings-popup"></plasmo-csui><head>
+<meta charset="UTF-8">
+<title>RayGamix Launcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="https://raygamix.github.io/favicon.png">
+
+<style>
+:root{
+--bg:#000;
+--panel:#071018;
+--card:#111;
+--muted:#9aa;
+--accent:#00b7ff;
+--accent-3:#888888;
+--glass:rgba(255,255,255,0.03);
+--gap:16px;
+color-scheme:dark;
+}
+
+
+
+html,body{
+height:100%;
+margin:0;
+background:var(--bg);
+color:#fff;
+font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+touch-action:manipulation;
+overflow-x: hidden;
+}
+
+/* Hide Google Translate Branding */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+.goog-logo-link { display:none !important; }
+#google_translate_element { display: none; }
+
+.app{
+display:grid;
+grid-template-columns:220px 1fr;
+grid-template-rows:72px 1fr;
+gap:var(--gap);
+height:100vh;
+padding:18px;
+box-sizing:border-box;
+align-items:start;
+}
+
+.sidebar{
+grid-row:1/span 2;
+background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+border-radius:12px;
+padding:18px;
+display:flex;
+flex-direction:column;
+gap:12px;
+align-items:center;
+}
+
+.create-btn, .leftbuttons{
+background:linear-gradient(180deg,var(--accent),#0077aa);
+color:#fff;
+padding:12px 10px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+border:none;
+width: 100%;
+transition: transform 0.1s;
+}
+
+.create-btn:active, .leftbuttons:active { transform: scale(0.98); }
+
+.topbar{
+grid-column:2/3;
+height:72px;
+display:flex;
+align-items:center;
+gap:12px;
+padding:0 8px;
+}
+
+.logo{
+width:11.5%;
+border-radius:8px;
+object-fit:contain;
+}
+
+.search{
+flex:1;
+display:flex;
+align-items:center;
+gap:8px;
+background:var(--glass);
+padding:10px 12px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.03);
+}
+
+.search input{
+background:transparent;
+border:0;
+outline:none;
+color:#fff;
+font-size:15px;
+width:100%;
+}
+
+.nav-icons{
+display:flex;
+gap:10px;
+align-items:center;
+position:relative;
+}
+
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.nav-icon{
+padding:8px 12px;
+border-radius:8px;
+background:rgba(255,255,255,0.02);
+cursor:pointer;
+font-size:13px;
+color:var(--muted);
+transition: background 0.2s;
+user-select: none;
+}
+
+.nav-icon:hover {
+background: rgba(255,255,255,0.08);
+color: #fff;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+top:42px;
+right:0;
+background:var(--panel);
+border-radius:8px;
+padding:8px;
+min-width: 160px;
+max-height:300px;
+overflow-y:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.8);
+z-index:1000;
+border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content.show {
+display: block;
+}
+
+.dropdown-content div{
+padding:8px 12px;
+cursor:pointer;
+border-radius:4px;
+color:#fff;
+font-size: 14px;
+white-space: nowrap;
+}
+
+.dropdown-content div:hover{
+background:rgba(255,255,255,0.1);
+}
+
+.main{
+grid-column:2/3;
+background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+border-radius:12px;
+padding:18px;
+overflow:auto;
+position:relative;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:16px;
+}
+
+.card{
+background:var(--card);
+border-radius:12px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.02);
+transition: transform 0.15s;
+}
+
+.card:hover{
+transform: translateY(-3px);
+}
+
+.thumb{
+width:100%;
+height:140px;
+background:linear-gradient(180deg,#0b2a3a,#04202a);
+}
+
+.card-body{
+padding:12px;
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.card-info{
+flex:1;
+}
+
+.card-title{
+font-weight:700;
+margin-bottom:6px;
+}
+
+.card-sub{
+color:var(--muted);
+font-size:.85rem;
+}
+
+.play{
+background:var(--accent);
+color:#000;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+border:none;
+font-weight:700;
+}
+
+#avatarPanel{
+position:absolute;
+top:80px;
+right:20px;
+width:300px;
+height:400px;
+background:var(--panel);
+border-radius:12px;
+padding:12px;
+display:none;
+flex-direction:column;
+gap:8px;
+z-index:200;
+border: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer{
+grid-column:1/-1;
+text-align:center;
+color:var(--muted);
+font-size:0.85rem;
+margin-top:12px;
+padding:12px 0;
+border-top:1px solid rgba(255,255,255,0.05);
+background:rgba(0,0,0,0.2);
+border-radius:8px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px;
+}
+
+.dev-badge {
+height: 18px;
+}
+</style>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAM/d=0/rs=AN8SPfp0Aw7R6LuNGcvWztc4ZbKYxlauww/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.de.IeyB94npJlE.O/am=AACA/d=1/exm=el_conf/ed=1/rs=AN8SPfqdxMzO1_l7qq3er-X0HaPbsHPa1Q/m=el_main"></script></head>
+<body style="position: relative; min-height: 100%; top: 0px;">
+<div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Originaltext</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Diese Übersetzung bewerten</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Mit deinem Feedback können wir Google Übersetzer weiter verbessern</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Gute Übersetzung" aria-label="Gute Übersetzung" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Schlechte Übersetzung" aria-label="Schlechte Übersetzung" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div><div class="app">
+
+<div class="sidebar">
+<button class="create-btn notranslate">Create a game</button>
+<button onclick="login()" class="leftbuttons notranslate">Log in</button>
+<button onclick="signup()" class="leftbuttons notranslate">Sign Up</button>
+<button onclick="logout()" class="leftbuttons notranslate">Sign Out</button>
+<button onclick="toggleAvatarPanel()" class="leftbuttons notranslate">Adjust Avatar</button>
+<div id="userDisplay" class="notranslate" style="font-size:16px;color:#ffffff; margin-top:10px;"></div>
+<div id="stats" style="font-size:16px;color:#9aa;">Tokens: N/A</div>
+</div>
+
+<div class="topbar">
+<img class="logo" src="https://raygamix.github.io/logo.png">
+<div class="search">
+<input id="searchInput" placeholder="Search...">
+</div>
+<div class="nav-icons">
+<div class="dropdown">
+<div class="nav-icon" onclick="toggleDropdown('langDropdown')">🌐 Language</div>
+<div class="dropdown-content" id="langDropdown">
+<div onclick="changeLanguage('en')">English</div>
+<div onclick="changeLanguage('es')">Español</div>
+<div onclick="changeLanguage('fr')">Français</div>
+<div onclick="changeLanguage('de')">Deutsch</div>
+<div onclick="changeLanguage('it')">Italiano</div>
+<div onclick="changeLanguage('pt')">Português</div>
+<div onclick="changeLanguage('ja')">日本語</div>
+<div onclick="changeLanguage('ko')">한국어</div>
+<div onclick="changeLanguage('zh-CN')">简体中文</div>
+<div onclick="changeLanguage('ar')">العربية</div>
+</div>
+</div>
+<div class="dropdown">
+<div class="nav-icon" onclick="toggleDropdown('colorDropdown')">🎨 Color</div>
+<div class="dropdown-content" id="colorDropdown" style="padding: 15px;">
+<div style="margin-bottom: 8px; padding: 0;">HEX Color:</div>
+<input type="text" id="colorHex" placeholder="#00b7ff" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 5px; border-radius: 4px; margin-bottom: 10px;">
+<button class="leftbuttons" onclick="changeColor()">Apply</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Hidden translation container -->
+<div id="google_translate_element"></div>
+
+<div class="main" id="main">
+<div id="backButtonContainer" style="display: none; margin-bottom: 10px;">
+<button class="leftbuttons" style="width:auto; padding: 5px 15px;" onclick="exitGame()">← Back</button>
+</div>
+<div class="grid" id="grid" style="display: grid;">
+<div class="card">
+<div class="thumb"></div>
+<div class="card-body">
+<div class="card-info">
+<div class="card-title notranslate">RayGamix Demo Game</div>
+<div class="card-sub">Creator: <span class="notranslate">Raybod</span></div>
+</div>
+<button class="play" onclick="joinGame('demo')">Play</button>
+</div>
+</div></div>
+</div>
+
+<div id="avatarPanel">
+<div id="avatarTabs" style="display:flex; gap:5px; margin-bottom:10px;">
+<button onclick="renderAvatarTab('avatar')" class="leftbuttons">AVATAR</button>
+</div>
+<div id="avatarContent"></div>
+</div>
+<footer class="footer">
+Created by The RayGamix Team <img class="dev-badge" src="http://raygamix.github.io/publicdata/developerbadge.png" onerror="this.style.display='none'" style="display: none;">
+</footer>
+<button class="create-btn" style="width: 100px;height: 27.5px;font-size:5px;align-items: center;" onclick="window.location.href='https://raygamix.github.io/sourcecode.txt'"><span style="margin-top: -45px;">View RayGamix's source code...</span></button>
+<script>
+/* ---------------- GLOBALS ---------------- */
+let currentUser = null;
+let userTokens = "N/A";
+let ugcData = [];
+let isPlaying = false;
+
+const Server = {
+URL: "https://raygamix.github.io" // your actual server with /Games/list.json
+};
+
+/* ---------------- DROPDOWN ---------------- */
+function toggleDropdown(id){
+document.querySelectorAll('.dropdown-content').forEach(d=>{ if(d.id!==id)d.classList.remove('show'); });
+document.getElementById(id).classList.toggle('show');
+}
+
+window.onclick=function(event){
+if(!event.target.closest(".nav-icon") && !event.target.closest(".dropdown-content")){
+document.querySelectorAll('.dropdown-content').forEach(d=>d.classList.remove('show'));
+}
+};
+
+/* ---------------- SEARCH ---------------- */
+document.getElementById("searchInput").addEventListener("input",()=>{
+const value=document.getElementById("searchInput").value.toLowerCase();
+renderGrid(value);
+});
+
+/* ---------------- FETCH & RENDER ---------------- */
+async function fetchGames(){
+try{
+const url=`${Server.URL}/Games/list.json?_=${Date.now()}`; // always fresh
+const res=await fetch(url);
+ugcData=await res.json();
+}catch(e){
+// fallback: only 1 demo game
+ugcData=[{id:"demo",name:"RayGamix Demo Game",creator:"Raybod"}];
+}
+renderGrid();
+}
+
+function renderGrid(search=""){
+const grid=document.getElementById("grid");
+grid.innerHTML="";
+ugcData.filter(g=>g.name.toLowerCase().includes(search))
+.forEach(g=>{
+grid.innerHTML+=`
+<div class="card">
+<div class="thumb"></div>
+<div class="card-body">
+<div class="card-info">
+<div class="card-title notranslate">${g.name}</div>
+<div class="card-sub">Creator: <span class="notranslate">${g.creator}</span></div>
+</div>
+<button class="play" onclick="joinGame('${g.id}')">Play</button>
+</div>
+</div>`;
+});
+}
+
+/* ---------------- GAME PLAYER ---------------- */
+function joinGame(gameId){
+isPlaying=true;
+document.getElementById("grid").style.display="none";
+document.getElementById("backButtonContainer").style.display="block";
+const gameUrl=(Server.URL==="N/A")?"https://raygamix.github.io/demogame.html":`${Server.URL}/Games/${gameId}/index.html`;
+const iframe=document.createElement("iframe");
+iframe.id="gameFrame";
+iframe.src=gameUrl;
+iframe.style.width="100%";
+iframe.style.height="78vh";
+iframe.style.border="none";
+iframe.style.borderRadius="12px";
+iframe.style.background="#000";
+document.getElementById("main").appendChild(iframe);
+}
+
+function exitGame(){
+isPlaying=false;
+const frame=document.getElementById("gameFrame");
+if(frame) frame.remove();
+document.getElementById("grid").style.display="grid";
+document.getElementById("backButtonContainer").style.display="none";
+fetchGames();
+}
+
+/* ---------------- USER ---------------- */
+async function signup(){
+const name=prompt("Choose a username:"); if(!name) return;
+const pass=prompt("Choose a password:");
+currentUser=name; userTokens="N/A"; updateUser();
+}
+
+async function login(){
+const name=prompt("Username:"); const pass=prompt("Password:");
+currentUser=name||"Guest"; userTokens="N/A"; updateUser();
+}
+
+function logout(){currentUser=null; userTokens="N/A"; updateUser();}
+
+function updateUser(){
+document.getElementById("userDisplay").innerText=currentUser||"";
+document.getElementById("stats").innerText="Tokens: "+userTokens;
+}
+
+/* ---------------- COLOR ---------------- */
+function changeColor(){
+const hex=document.getElementById("colorHex").value;
+if(!hex) return;
+document.documentElement.style.setProperty('--bg',hex);
+document.querySelectorAll('.dropdown-content').forEach(d=>d.classList.remove('show'));
+}
+
+/* ---------------- AVATAR ---------------- */
+function toggleAvatarPanel(){
+const panel=document.getElementById("avatarPanel");
+panel.style.display=panel.style.display==="flex"?"none":"flex";
+}
+
+/* ---------------- START ---------------- */
+setInterval(fetchGames,5000); // fetch every 5 seconds
+fetchGames();
+updateUser();
+
+/* ---------------- GOOGLE TRANSLATE ---------------- */
+function googleTranslateElementInit(){
+new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es,fr,de,it,pt,ja,ko,zh-CN,ar',autoDisplay:false},'google_translate_element');
+}
+
+function changeLanguage(langCode){
+const select=document.querySelector('.goog-te-combo');
+if(select){select.value=langCode; select.dispatchEvent(new Event('change'));}
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+</div><div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

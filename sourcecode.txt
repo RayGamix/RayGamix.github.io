@@ -14,7 +14,7 @@ Keep safe. Do not purchase this item, as it is free.
 - The RayGamix Team 
 -->
 <!DOCTYPE html>
-<html style="height: 100%;"><plasmo-csui id="g0-widget"></plasmo-csui><plasmo-csui id="g0-ratings-popup"></plasmo-csui><head>
+<html style="height: 100%;"><head>
 <meta charset="UTF-8">
 <title>RayGamix Launcher</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -288,7 +288,7 @@ gap: 8px;
 height: 18px;
 }
 </style>
-<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAM/d=0/rs=AN8SPfp0Aw7R6LuNGcvWztc4ZbKYxlauww/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.de.IeyB94npJlE.O/am=AACA/d=1/exm=el_conf/ed=1/rs=AN8SPfqdxMzO1_l7qq3er-X0HaPbsHPa1Q/m=el_main"></script></head>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAG/d=0/rs=AN8SPfqYR8aMO6cXHEerk3WNK6MxN1aRTg/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.de._z609kTUGwc.O/am=AABA/d=1/exm=el_conf/ed=1/rs=AN8SPfrvTLVx5mAsPAqC4TYjD2fSR4dpzw/m=el_main"></script></head>
 <body style="position: relative; min-height: 100%; top: 0px;">
 <div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Originaltext</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Diese Übersetzung bewerten</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Mit deinem Feedback können wir Google Übersetzer weiter verbessern</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Gute Übersetzung" aria-label="Gute Übersetzung" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Schlechte Übersetzung" aria-label="Schlechte Übersetzung" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div><div class="app">
 
@@ -335,13 +335,13 @@ height: 18px;
 </div>
 
 <!-- Hidden translation container -->
-<div id="google_translate_element"></div>
+<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage"><select class="goog-te-combo" aria-label="Widget &quot;Sprache übersetzen&quot;"><option value="">Sprache auswählen</option><option value="de">Deutsch</option><option value="ar">Arabisch</option><option value="zh-CN">Chinesisch (vereinfacht)</option><option value="fr">Französisch</option><option value="it">Italienisch</option><option value="ja">Japanisch</option><option value="ko">Koreanisch</option><option value="pt">Portugiesisch (Brasilien)</option><option value="es">Spanisch</option></select></div>Powered by <span style="white-space:nowrap"><a class="VIpgJd-ZVi9od-l4eHX-hSRGPd" href="https://translate.google.com" target="_blank"><img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png" width="37px" height="14px" style="padding-right: 3px" alt="Google Google Übersetzer">Google Übersetzer</a></span></div></div>
 
 <div class="main" id="main">
-<div id="backButtonContainer" style="display: none; margin-bottom: 10px;">
+<div id="backButtonContainer" style="display:none; margin-bottom:10px;">
 <button class="leftbuttons" style="width:auto; padding: 5px 15px;" onclick="exitGame()">← Back</button>
 </div>
-<div class="grid" id="grid" style="display: grid;">
+<div class="grid" id="grid">
 <div class="card">
 <div class="thumb"></div>
 <div class="card-body">

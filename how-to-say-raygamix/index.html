@@ -31,7 +31,7 @@
                 font-weight: 100;
                            font-size:400%;
             }
-    button {
+    button{
       margin-top: 15px;
       padding: 14px 22px;
       color: #000;
@@ -44,6 +44,20 @@
       text-align: center;
       width: 700px;
       transition: 1.25s ease;
+    }
+        button:hover, button.clicked{
+      margin-top: 15px;
+      padding: 14px 22px;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, #097, #4428cc);
+      text-align: center;
+      width: 700px;
+      transition: 0.1s ease;
     }
             </style>
             </head>
@@ -84,5 +98,18 @@
             }
         });
     </script>
+    <script>
+    const btn = document.getElementById('myBtn');
+
+    btn.addEventListener('click', () => {
+        // Add the clicked class
+        btn.classList.add('clicked');
+
+        // Remove it after 1 second
+        setTimeout(() => {
+            btn.classList.remove('clicked');
+        }, 2000);
+    });
+</script>
                 </body>
                 </html>

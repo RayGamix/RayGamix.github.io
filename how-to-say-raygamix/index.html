@@ -13,7 +13,6 @@
 
             
             body {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
@@ -60,11 +59,32 @@
       width: 700px;
       transition: 0.1s ease;
     }
+    #flex{display:flex;
+         flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                font-family: Arial, sans-serif;
+                background-color: #070a33;
+                color: white;
+                margin-top: 70px;
+    }
+    #no-flex{
+         flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                font-family: Arial, sans-serif;
+                background-color: #070a33;
+                color: white;
+margin-left:30px;
+                margin-top: -40px;
+                
+    }
             </style>
             </head>
             
             <body>
-                    <h1>How do i say RayGamix?</h1>
+                <div id="no-flex"><img src="https://raygamix.github.io/logo.png" style="width:500px;"></div>
+                    <div id="flex"><h1>How do i say <img src="https://raygamix.github.io/logo.png" style="width:370px;margin-bottom:-13px;margin-right:6px;">?</h1>
   <h2>(Ray-Game-Ix)</h2>
     <!-- Hidden audio element -->
     <audio id="myAudio">
@@ -112,5 +132,5 @@
         }, 2000);
     });
 </script>
-                </body>
+                </div></body>
                 </html>

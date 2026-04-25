@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RayGamix | Secure Login</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: #071018; padding: 40px; border-radius: 12px; border: 1px solid #1a2a3a; width: 300px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #111; border: 1px solid #333; color: #fff; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #00b7ff; border: none; color: #000; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 10px; transition: opacity 0.2s; }
+        button:hover { opacity: 0.8; }
+        .signup-btn { background: #2222ff; color: #fff; }
+        a { color: #888; font-size: 13px; text-decoration: none; display: block; margin-top: 20px; }
+        #errorMsg { color: #ff4444; font-size: 12px; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2 style="color:#00b7ff">RayGamix Auth</h2>
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="password" id="pass" placeholder="Password">
+    
+    <button id="loginBtn">Log In</button>
+    <button id="signupBtn" class="signup-btn">Create Account</button>
+    
+    <div id="errorMsg"></div>
+    <a href="https://raygamix.github.io">← Back to Launcher</a>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+    // RAY: REPLACE THIS ENTIRE CONFIG WITH YOURS FROM FIREBASE!
+const firebaseConfig = {
+  apiKey: "AIzaSyAtnJFmZzAY9Qks-eqBkefe37qCbL8iWGs",
+  authDomain: "raygamix-official.firebaseapp.com",
+  projectId: "raygamix-official",
+  storageBucket: "raygamix-official.firebasestorage.app",
+  messagingSenderId: "679090383872",
+  appId: "1:679090383872:web:a63cbf235bec39f9803ce5"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const emailInput = document.getElementById('email');
+    const passInput = document.getElementById('pass');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function showError(msg) {
+        errorMsg.style.display = 'block';
+        errorMsg.innerText = msg;
+    }
+
+    // Secure Login
+    document.getElementById('loginBtn').addEventListener('click', () => {
+        signInWithEmailAndPassword(auth, emailInput.value, passInput.value)
+            .then((userCredential) => {
+                window.location.href = "https://raygamix.github.io"; 
+            })
+            .catch((error) => {
+                showError(error.message);
+            });
+    });
+
+    // Secure Sign Up
+    document.getElementById('signupBtn').addEventListener('click', () => {
+        createUserWithEmailAndPassword(auth, emailInput.value, passInput.value)
+            .then((userCredential) => {
+                alert("Account created successfully!");
+                window.location.href = "https://raygamix.github.io"; 
+            })
+            .catch((error) => {
+                showError(error.message);
+            });
+    });
+</script>
+
+</body>
+</html>

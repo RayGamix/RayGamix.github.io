@@ -1,1 +1,25 @@
-<!DOCTYPE html><html><head><title>RayGamix Launcher</title></head><body bgcolor="0"><iframe style="width:101%;height:100vh;position:absolute;overflow:hidden;border:none;" src="https://tinyurl.com/2p9u228s"></iframe></body></html>
+   <script>
+        /**
+         * Redirects the user to a given URL.
+         * @param {string} url - The destination URL.
+         */
+        function redirectTo(url) {
+            try {
+                // Basic validation: ensure it's a non-empty string and starts with http/https
+                if (typeof url === "string" && /^https?:\/\//i.test(url)) {
+                    window.location.href = url; // Perform the redirect
+                } else {
+                    console.error("Invalid URL provided for redirection.");
+                }
+            } catch (error) {
+                console.error("Redirection failed:", error);
+            }
+        }
+
+        // Example: Redirect after 2 seconds
+        window.onload = function () {
+            setTimeout(function () {
+                redirectTo("https://raygamix.github.io/launcher");
+            }, 1);
+        };
+    </script>

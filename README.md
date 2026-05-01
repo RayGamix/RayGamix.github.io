@@ -1,10 +1,8 @@
-
-<div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#050816; color:#f5f5f5; padding:20px; border-radius:16px; max-width:800px; margin:20px auto;">  <h1 style="display:flex; align-items:flex-end; gap: 10px;">
-  Welcome to
-  <img src="https://raygamix.github.io/logo.png"
-       alt="RayGamix Logo"
-       style="height:1em; transform: translateY(-6px);">
-  !
-</h1> <span>We recently made a single-/multiplayer game. You can check it out, it's fun!</span><br> <span> <a style="color:#44f; font-weight:300;" href="https://github.com/Raybod8765/RayGamix.github.io" style="color:#111; font-weight:bold;">Raybod8765</a> is the developer. You can access RayGamix anytime at <a style="color:#44f; font-weight:300;" href="https://raygamix.github.io/launcher" style="color:#6af; font-weight:bold;">https://raygamix.github.io/launcher</a>. </span><br> <span> Want to download RayGamix for Windows? You can just go to <a href="https://raygamix.github.io/download" style="color:#44f; font-weight:300;">https://raygamix.github.io/download</a> to download RayGamix!* </span><br> <span>No money? No problem! RayGamix is free of Ads and Microtransactions!</span><br> <span style="font-size: 0.35em" style="font-size:0.6rem; margin-top:250px;"><i>*Note that on other devices, you can just use <a href="https://raygamix.github.io/launcher" style="color:#44f; font-weight:300;">the browser version</a>!</i></span> </div></body></html> <!--
-%raygamix%/verification-badge#verifynow
--->
+# Welcome to RayGamix!
+We recently made a single-/multiplayer game. Check it out, it's fun!    
+@Raybod8765 is the developer!    
+You can access RayGamix anytime at https://raygamix.gtihub.io/launcher.    
+Downloads? You can just go to https://raygamix.gtihub.io/download to download RayGamix!*   
+<H6><small><small><small><small><small>*On devices other than Windows, just visit https://raygamix.gtihub.io/launcher to play! It is the same thing as the EXE file!</small></small></small></small></small></H6>
+<H6><small><small><small><small><small>RayGamix Beta 0.9. Official releace 31 May.</small></small></small></small></small></H6>
+ 

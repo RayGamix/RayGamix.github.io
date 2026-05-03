@@ -1,1 +1,449 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>RayGamix Launcher</title><style>html,body{margin:0;height:100%;overflow:hidden}</style></head><body><iframe src="https://aada6c7e-e859-49c2-b4ef-3eceace88f4f-00-1zk0c7v6iqbhx.worf.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=artifacts%2Fraygamix" style="width:100%;height:100%;border:none;display:block"></iframe></body></html>
+<!-- 
+RayGamix Version: 1.1.1
+Backend: https://raygamix-backend.raybod8765.workers.dev/
+Status: Full Integration
+"Never give up. You can do it." 
+- The RayGamix Team 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RayGamix Launcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://raygamix.github.io/favicon.png">
+    <style>
+        :root {
+            --bg: #000;
+            --panel: #071018;
+            --card: #111;
+            --muted: #9aa;
+            --accent: #00b7ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --gap: 16px;
+            color-scheme: dark;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Hide Google UI */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element { display: none; }
+
+        .app {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            grid-template-rows: 72px 1fr;
+            gap: var(--gap);
+            height: 100vh;
+            padding: 18px;
+            box-sizing: border-box;
+        }
+
+        /* SIDEBAR (Cleaned) */
+        .sidebar {
+            grid-row: 1 / span 2;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .create-btn, .action-btn {
+            background: linear-gradient(180deg, var(--accent), #0077aa);
+            color: #fff;
+            padding: 12px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+            width: 100%;
+            transition: transform 0.1s;
+            text-align: center;
+        }
+
+        .create-btn:active, .action-btn:active { transform: scale(0.98); }
+
+        /* TOPBAR */
+        .topbar {
+            grid-column: 2 / 3;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo { height: 40px; border-radius: 8px; }
+
+        .search {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: var(--glass);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search input {
+            background: transparent;
+            border: 0;
+            outline: none;
+            color: #fff;
+            width: 100%;
+        }
+
+        .nav-icons { display: flex; gap: 10px; position: relative; }
+
+        .nav-icon {
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            font-size: 13px;
+            color: #fff;
+            user-select: none;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 12px;
+            min-width: 200px;
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+        }
+
+        .dropdown-content.show { display: flex; flex-direction: column; gap: 8px; }
+        
+        .auth-input {
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        /* MAIN AREA */
+        .main {
+            grid-column: 2 / 3;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .thumb { width: 100%; height: 140px; background: #050a0f; }
+
+        .card-body { padding: 15px; display: flex; align-items: center; justify-content: space-between; }
+        
+        .card-title { font-weight: 700; font-size: 15px; }
+        .card-sub { color: var(--muted); font-size: 12px; }
+
+        .play {
+            background: var(--accent);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            font-weight: 800;
+        }
+
+        #avatarPanel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            background: var(--panel);
+            border-radius: 15px;
+            padding: 25px;
+            display: none;
+            flex-direction: column;
+            border: 1px solid var(--accent);
+            z-index: 3000;
+        }
+
+        .footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            padding: 10px;
+        }
+
+        iframe { width: 100%; height: 80vh; border: none; border-radius: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <button class="create-btn">Create Game</button>
+        <button onclick="toggleAvatarPanel()" class="action-btn" style="background: var(--glass); border: 1px solid #333;">Adjust Avatar</button>
+        <div style="margin-top: auto; text-align: center; width: 100%;">
+            <div id="userDisplay" style="font-weight:bold; color:var(--accent);">Guest</div>
+            <div id="tokenDisplay" style="font-size: 12px; color: var(--muted);">Tokens: N/A</div>
+        </div>
+    </aside>
+
+    <header class="topbar">
+        <img class="logo" src="https://raygamix.github.io/logo.png" alt="RayGamix">
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search games...">
+        </div>
+        <div class="nav-icons">
+            <!-- Consolidated User Dropdown -->
+            <div class="dropdown">
+                <div class="nav-icon" id="userBtn" onclick="toggleDropdown('userDropdown')">👤 Account</div>
+                <div class="dropdown-content" id="userDropdown">
+                    <div id="authSection">
+                        <input type="text" id="loginUser" class="auth-input" placeholder="Username">
+                        <input type="password" id="loginPass" class="auth-input" placeholder="Password">
+                        <button class="action-btn" onclick="handleAuth('login')">Login</button>
+                        <button class="action-btn" onclick="handleAuth('signup')" style="background:transparent; border: 1px solid var(--accent);">Sign Up</button>
+                        <button class="action-btn" onclick="guestLogin()" style="background: #222;">Guest Mode</button>
+                    </div>
+                    <div id="profileSection" style="display:none;">
+                        <button class="action-btn" onclick="handleLogout()" style="background: #cc3333;">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language Dropdown -->
+            <div class="dropdown">
+                <div class="nav-icon" onclick="toggleDropdown('langDropdown')">🌐 Language</div>
+                <div class="dropdown-content" id="langDropdown">
+                    <div onclick="changeLanguage('en')">English</div>
+                    <div onclick="changeLanguage('es')">Español</div>
+                    <div onclick="changeLanguage('fr')">Français</div>
+                    <div onclick="changeLanguage('de')">Deutsch</div>
+                    <div onclick="changeLanguage('zh-CN')">简体中文</div>
+                </div>
+            </div>
+
+            <!-- Color Dropdown -->
+            <div class="dropdown">
+                <div class="nav-icon" onclick="toggleDropdown('colorDropdown')">🎨 Theme</div>
+                <div class="dropdown-content" id="colorDropdown">
+                    <input type="color" id="themePicker" style="width:100%; height:40px; border:none; background:none;">
+                    <button class="action-btn" onclick="applyTheme()">Set Accent</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main" id="main">
+        <div id="gameView" style="display:none;">
+            <button class="action-btn" style="width:auto; margin-bottom:15px;" onclick="closeGame()">← Back</button>
+            <div id="frameContainer"></div>
+        </div>
+        <div class="grid" id="gameGrid"></div>
+    </main>
+
+    <div id="avatarPanel">
+        <h2>Avatar Editor</h2>
+        <div style="height:150px; background:#000; border-radius:10px; margin: 10px 0;"></div>
+        <button class="action-btn" onclick="toggleAvatarPanel()">Save</button>
+    </div>
+
+    <footer class="footer">Created by The RayGamix Team</footer>
+</div>
+
+<div id="google_translate_element"></div>
+
+<script>
+    const BACKEND = "https://raygamix-backend.raybod8765.workers.dev";
+    let currentUser = localStorage.getItem('rg_session') || null;
+
+    /* --- INITIALIZE --- */
+    window.onload = () => {
+        refreshUserUI();
+        loadGames();
+        setInterval(loadGames, 5000);
+    };
+
+    /* --- AUTH LOGIC (All-in-1 Dropdown) --- */
+    async function handleAuth(type) {
+        const u = document.getElementById('loginUser').value;
+        const p = document.getElementById('loginPass').value;
+        if(!u || !p) return alert("Fill all fields");
+
+        try {
+            const res = await fetch(`${BACKEND}/${type}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ username: u, password: p })
+            });
+            const data = await res.json();
+            if(data.user || data.status === "ok") {
+                currentUser = u;
+                localStorage.setItem('rg_session', u);
+                refreshUserUI();
+                toggleDropdown('userDropdown');
+            } else {
+                alert("Auth failed: " + (data.message || "Check credentials"));
+            }
+        } catch(e) {
+            alert("Backend Error");
+        }
+    }
+
+    function guestLogin() {
+        currentUser = "Guest";
+        localStorage.setItem('rg_session', 'Guest');
+        refreshUserUI();
+        toggleDropdown('userDropdown');
+    }
+
+    function handleLogout() {
+        currentUser = null;
+        localStorage.removeItem('rg_session');
+        refreshUserUI();
+        toggleDropdown('userDropdown');
+    }
+
+    function refreshUserUI() {
+        const userDisp = document.getElementById('userDisplay');
+        const authSec = document.getElementById('authSection');
+        const profSec = document.getElementById('profileSection');
+        const userBtn = document.getElementById('userBtn');
+
+        if(currentUser) {
+            userDisp.innerText = currentUser;
+            userBtn.innerText = "👤 " + currentUser;
+            authSec.style.display = "none";
+            profSec.style.display = "flex";
+        } else {
+            userDisp.innerText = "Guest";
+            userBtn.innerText = "👤 Account";
+            authSec.style.display = "flex";
+            profSec.style.display = "none";
+        }
+    }
+
+    /* --- GAME LOGIC --- */
+    async function loadGames() {
+        if(document.getElementById('gameFrame')) return;
+        try {
+            const res = await fetch(`${BACKEND}/games`);
+            const games = await res.json();
+            renderGrid(games);
+        } catch(e) {
+            // Fallback
+            renderGrid([{id: 'demo', name: 'Server Offline', creator: 'System'}]);
+        }
+    }
+
+    function renderGrid(data) {
+        const grid = document.getElementById('gameGrid');
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        grid.innerHTML = "";
+        
+        data.filter(g => g.name.toLowerCase().includes(search)).forEach(g => {
+            grid.innerHTML += `
+                <div class="card">
+                    <div class="thumb"></div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-title">${g.name}</div>
+                            <div class="card-sub">${g.creator}</div>
+                        </div>
+                        <button class="play" onclick="launchGame('${g.id}')">Play</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function launchGame(id) {
+        document.getElementById('gameGrid').style.display = "none";
+        document.getElementById('gameView').style.display = "block";
+        const container = document.getElementById('frameContainer');
+        container.innerHTML = `<iframe id="gameFrame" src="https://raygamix.github.io/Games/${id}/index.html"></iframe>`;
+    }
+
+    function closeGame() {
+        document.getElementById('gameGrid').style.display = "grid";
+        document.getElementById('gameView').style.display = "none";
+        document.getElementById('frameContainer').innerHTML = "";
+    }
+
+    /* --- UI HELPERS --- */
+    function toggleDropdown(id) {
+        document.querySelectorAll('.dropdown-content').forEach(d => {
+            if(d.id !== id) d.classList.remove('show');
+        });
+        document.getElementById(id).classList.toggle('show');
+    }
+
+    function applyTheme() {
+        const color = document.getElementById('themePicker').value;
+        document.documentElement.style.setProperty('--accent', color);
+        toggleDropdown('colorDropdown');
+    }
+
+    function toggleAvatarPanel() {
+        const p = document.getElementById('avatarPanel');
+        p.style.display = p.style.display === "flex" ? "none" : "flex";
+    }
+
+    function changeLanguage(lang) {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+        }
+        toggleDropdown('langDropdown');
+    }
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+
+    document.getElementById('searchInput').oninput = () => loadGames();
+    window.onclick = (e) => {
+        if(!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+        }
+    }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

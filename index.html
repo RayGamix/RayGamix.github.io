@@ -1,4 +1,4 @@
-   <script>
+<!--   <script>
         /**
          * Redirects the user to a given URL.
          * @param {string} url - The destination URL.
@@ -23,3 +23,189 @@
             }, 1);
         };
     </script>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RayGamix – Imagine Anything</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    
+    body {
+      font-family: "HCo Gotham SSm", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      background: #050816;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+
+    /* --- Roblox-style Navigation Bar --- */
+    nav {
+        width: 100%;
+        height: 60px;
+        background: #121233;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 1px solid #393b3d;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-logo {
+        font-size: 24px;
+    }
+
+    /* --- Hero Container --- */
+    .main-container {
+        margin-top: 80px;
+        width: 90%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 50px;
+    }
+
+    .hero-banner {
+        width: 100%;
+        padding: 60px 40px;
+        background: radial-gradient(circle at center, #222244, #020617);
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid #393b3d;
+    }
+
+    .hero-banner h1 {
+        font-size: 48px;
+        margin: 0 0 10px 0;
+        font-weight: 800;
+    }
+
+    .hero-banner p {
+        font-size: 18px;
+        color: #adb5bd;
+        margin-bottom: 30px;
+    }
+
+    /* --- EXACT BUTTON STYLING --- */
+    .download-btn {
+      padding: 14px 40px;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.5rem; /* Increased for that "Big Play Button" feel */
+      font-weight: bold;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, #0ca, #775bff);
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      transition: 1.25s ease;
+      box-shadow: 0 4px 15px rgba(0, 204, 170, 0.3);
+    }
+
+    .download-btn:hover { 
+        filter: brightness(75%);
+        transform: scale(1.02);
+    }
+
+    /* --- Feature Tiles (Roblox Discovery Style) --- */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        
+    }
+
+    .feature-card {
+        background: #121233;
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid #111;
+        transition: background 0.2s;
+    }
+
+    .feature-card:hover {
+        background: #121244;
+    }
+
+    .feature-card h3 {
+        color: #0ca;
+        margin-top: 0;
+        font-size: 1.1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+        color: #adb5bd;
+        line-height: 1.4;
+    }
+
+    /* --- Status Footer --- */
+    .footer-note {
+        text-align: center;
+        margin-top: 40px;
+        color: #65676b;
+        font-size: 0.85rem;
+    }
+
+    .beta-badge {
+        background: #393b3d;
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+      <div class="nav-logo"><img src="https://raygamix.github.io/logo.png" style="width:250px; margin-top: 12px;"></div>
+  </nav>
+
+  <div class="main-container">
+    <section class="hero-banner">
+        <p><span class="beta-badge">Public Beta</span></p>
+        <h1>Imagine Anything.</h1>
+        <p>RayGamix is a community-driven, creative multiplayer game where your choices shape the universe.</p>
+        
+<a href="https://raygamix.github.io/launcher" class="download-btn">Play Now</a>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: #0ca;">No account required to start playing!</p>
+    </section>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Creative Sandbox</h3>
+            <p>Create your own games and share them with a global community.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Multiplayer Hub</h3>
+            <p>Engage in fun minigames and interact with players in a shared universe.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Avatar Choice</h3>
+            <p>Express yourself through deep avatar customization options.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Open Source</h3>
+            <p>Actively developed on GitHub by Raybod8765 with community feedback.</p>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>Developed by <strong>Raybod8765</strong></p>
+        <p>The RayGamix Team | 2026</p>
+    </div>
+  </div>
+
+</body>
+</html>

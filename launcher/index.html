@@ -22,6 +22,14 @@ Logic: Volumetric 3D Cuboids + VIP Badges + Dynamic Economy + Official Verified 
             --lleg-c: #fff; --rleg-c: #fff;
             --face-url: url('https://raw.githubusercontent.com/RayGamix/hardcodedassets/main/face.png');
         }
+        
+
+.tokenIcon{
+    width:16px;
+    height:16px;
+    margin-right:3px;
+    image-rendering: pixelated;
+}
 
         html, body { height: 100%; margin: 0; background: var(--bg); color: #fff; font-family: 'Inter', system-ui, sans-serif; overflow: hidden; }
         
@@ -120,7 +128,7 @@ Logic: Volumetric 3D Cuboids + VIP Badges + Dynamic Economy + Official Verified 
             <span id="uDisp">Guest</span>
             <span id="vBadge" class="badge" title="Verified User">VERIFIED</span>
         </div>
-        <div style="color:#ffd700; font-size:14px; margin-bottom:5px;">🪙 <span id="tVal">0</span> Tokens</div>
+        <div style="color:#ffd700; font-size:14px; margin-bottom:5px;"><img src="https://raw.githubusercontent.com/RayGamix/RayGamix.github.io/b88491d1aa9d8c6e66f889313342f045f59e6290/token.svg" class="tokenIcon"><span id="tVal">0</span> Tokens</div>
         <div id="streakDisp" style="color:var(--muted); font-size:11px; margin-bottom:15px; display:none;">🔥 Streak: <span id="streakNum">0</span> days</div>
 
         <button class="btn" onclick="openOverlay('avatar-panel')">Customize Color</button>

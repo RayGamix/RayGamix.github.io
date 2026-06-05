@@ -1,235 +1,238 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="UTF-8">
-  <title>RayGamix – The future of Gaming</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<title>RayGamix – The future of Gaming</title>
+<link rel="icon" type="image/png" href="favicon.png">
 
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+* { box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
+html, body {
+margin: 0;
+padding: 0;
+}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #f5f5f5;
-    }
+body {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: #050816;
+color: #f5f5f5;
+}
 
-    .empty {
-      height: 125px;
-      display: flex;
-      align-items: center;
-    }
+.empty {
+height: 125px;
+display: flex;
+align-items: center;
+}
 
 
-    .logo {
-      max-width: 500px;
-      height: auto;
-      margin-left: 35px;
-      margin-top: 10px;
-      display: block;
-    }
+.logo {
+max-width: 500px;
+height: auto;
+margin-left: 35px;
+margin-top: 10px;
+display: block;
+}
 
-    .HEROCONTAINER {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-    }
+.HEROCONTAINER {
+width: 100%;
+display: flex;
+flex-direction: column;
+position: relative;
+border-radius: 16px;
+overflow: hidden;
+}
 
-    .hero {
-      width: 95%;
-      margin: 0 auto;
-      min-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: 16px;
-    }
+.hero {
+width: 95%;
+margin: 0 auto;
+min-height: 80vh;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+background: radial-gradient(circle at top left, #1f2937, #020617);
+border-radius: 16px;
+}
 
-    .hero1 {
-      width: 95%;
-      padding: 60px 28px;
-      margin-top: 30px;
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: 16px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
-    }
+.hero1 {
+width: 95%;
+padding: 60px 28px;
+margin-top: 30px;
+background: radial-gradient(circle at top left, #1f2937, #020617);
+border-radius: 16px;
+box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+}
 
-    .hero1-content {
-      display: flex;
-      gap: 40px;
-    }
+.hero1-content {
+display: flex;
+gap: 40px;
+}
 
-    .hero1-left { flex: 1; }
-    .hero1-divider { width: 2px; background: rgba(255,255,255,0.2); }
-    .hero1-right { flex: 1; display: flex; flex-direction: column; }
+.hero1-left { flex: 1; }
+.hero1-divider { width: 2px; background: rgba(255,255,255,0.2); }
+.hero1-right { flex: 1; display: flex; flex-direction: column; }
 
-    .download-btn {
-      margin-top: 15px;
-      padding: 14px 22px;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      background: radial-gradient(circle at top left, #0ca, #775bff);
-      text-align: center;
-      width: 100%;
-      transition: 1.25s ease;
-    }
+.download-btn {
+margin-top: 15px;
+padding: 14px 22px;
+color: #000;
+border: none;
+border-radius: 10px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+background: radial-gradient(circle at top left, #0ca, #775bff);
+text-align: center;
+width: 100%;
+transition: 1.25s ease;
+}
 
-    .download-btn:hover { filter: brightness(75%); }
+.download-btn:hover { filter: brightness(75%); }
 
-    /* -------------------------------------- */
-    /*   THE GAME BUILT TO BE (STYLED BOX)    */
-    /* -------------------------------------- */
-    .TheGameBuiltToBe {
-      margin-top: 15px;
-      padding: 20px 30px;
-      background: radial-gradient(circle at top left, #0ca, #775bff);
-      border-radius: 10px;
-      width: 100%;
-      height: 110px;
+/* -------------------------------------- */
+/* THE GAME BUILT TO BE (STYLED BOX)*/
+/* -------------------------------------- */
+.TheGameBuiltToBe {
+margin-top: 15px;
+padding: 20px 30px;
+background: radial-gradient(circle at top left, #0ca, #775bff);
+border-radius: 10px;
+width: 100%;
+height: 110px;
 
-      display: flex;
-      align-items: center;       /* vertical center */
-      justify-content: center;   /* horizontal center */
+display: flex;
+align-items: center;/* vertical center */
+justify-content: center; /* horizontal center */
 
-      color: #000;
-      font-size: 3.20rem;
-      font-weight: 800;
+color: #000;
+font-size: 3.20rem;
+font-weight: 800;
 
-      overflow: hidden;
-    }
+overflow: hidden;
+}
 
-    /* -------------------------------------- */
-    /*   UNLIMITED WORD SLIDER (CHROME STYLE) */
-    /* -------------------------------------- */
-    .word-slider {
-      height: 6.4rem; /* double height = blank line effect */
-      overflow: hidden;
-      display: inline-block;
-    }
+/* -------------------------------------- */
+/* UNLIMITED WORD SLIDER (CHROME STYLE) */
+/* -------------------------------------- */
+.word-slider {
+height: 6.4rem; /* double height = blank line effect */
+overflow: hidden;
+display: inline-block;
+}
 
-    .word-slider-inner {
-      display: flex;
-      flex-direction: column;
-      animation: autoSlide linear infinite;
-    }
+.word-slider-inner {
+display: flex;
+flex-direction: column;
+animation: autoSlide linear infinite;
+}
 
-    .word-slider-inner span {
-      height: 6.4rem; /* same as slider height */
-      display: flex;
-      align-items: center;
-      font-weight: 900;
-    }
+.word-slider-inner span {
+height: 6.4rem; /* same as slider height */
+display: flex;
+align-items: center;
+font-weight: 900;
+}
 
-    @keyframes autoSlide {}
-  </style>
+@keyframes autoSlide {}
+</style>
 <style>@keyframes autoSlide {
-      0% { transform: translateY(-0px); }
-      12.962962962962962% { transform: translateY(-0px); }
-      16.666666666666664% { transform: translateY(-102px); }
-    
-      16.666666666666664% { transform: translateY(-102px); }
-      29.629629629629626% { transform: translateY(-102px); }
-      33.33333333333333% { transform: translateY(-204px); }
-    
-      33.33333333333333% { transform: translateY(-204px); }
-      46.29629629629629% { transform: translateY(-204px); }
-      50% { transform: translateY(-306px); }
-    
-      50% { transform: translateY(-306px); }
-      62.96296296296296% { transform: translateY(-306px); }
-      66.66666666666666% { transform: translateY(-408px); }
-    
-      66.66666666666666% { transform: translateY(-408px); }
-      79.62962962962962% { transform: translateY(-408px); }
-      83.33333333333334% { transform: translateY(-510px); }
-    
-      83.33333333333334% { transform: translateY(-510px); }
-      96.2962962962963% { transform: translateY(-510px); }
-      100% { transform: translateY(-0px); }
-    }</style></head>
+0% { transform: translateY(-0px); }
+12.962962962962962% { transform: translateY(-0px); }
+16.666666666666664% { transform: translateY(-102px); }
+
+16.666666666666664% { transform: translateY(-102px); }
+29.629629629629626% { transform: translateY(-102px); }
+33.33333333333333% { transform: translateY(-204px); }
+
+33.33333333333333% { transform: translateY(-204px); }
+46.29629629629629% { transform: translateY(-204px); }
+50% { transform: translateY(-306px); }
+
+50% { transform: translateY(-306px); }
+62.96296296296296% { transform: translateY(-306px); }
+66.66666666666666% { transform: translateY(-408px); }
+
+66.66666666666666% { transform: translateY(-408px); }
+79.62962962962962% { transform: translateY(-408px); }
+83.33333333333334% { transform: translateY(-510px); }
+
+83.33333333333334% { transform: translateY(-510px); }
+96.2962962962963% { transform: translateY(-510px); }
+100% { transform: translateY(-0px); }
+}</style>
+<style>
+ a{text-decoration: none;}
+</style></head>
 
 <body>
 
 <!-- PAGE 1 -->
 <div id="page1">
 
-  <div class="HEROCONTAINER">
+<div class="HEROCONTAINER">
 
-    <div class="empty">
-      <img class="logo" src="https://raygamix.github.io/logo.png">
-    </div>
+<div class="empty">
+<img class="logo" src="https://raygamix.github.io/logo.png">
+</div>
 
-    <section class="hero">
-      <section class="hero1">
+<section class="hero">
+<section class="hero1">
 
-        <!-- ⭐ FIXED: TEXT + SLIDER INSIDE THE GLOWING BOX -->
-        <div class="TheGameBuiltToBe">
-          <span>The game built to be</span>
+ <!-- ⭐ FIXED: TEXT + SLIDER INSIDE THE GLOWING BOX -->
+ <div class="TheGameBuiltToBe">
+ <span>The game built to be</span>
 
-          <div class="word-slider" style="margin-left: 12px;">
-            <div class="word-slider-inner" id="slider" style="animation-duration: 13.5s;">
-              <span>fun.</span>
-              <span>secure.</span>
-              <span>customizable.</span>
-              <span>lightweight.</span>
-              <span>fast.</span>
-              <span>open-source.</span>
-            </div>
-          </div>
-        </div>
+ <div class="word-slider" style="margin-left: 12px;">
+ <div class="word-slider-inner" id="slider" style="animation-duration: 13.5s;">
+<span>fun.</span>
+<span>secure.</span>
+<span>customizable.</span>
+<span>lightweight.</span>
+<span>fast.</span>
+<span>open-source.</span>
+ </div>
+ </div>
+ </div>
 
-        <div class="hero1-content">
+ <div class="hero1-content">
 
-          <div class="hero1-left">
-            <p>Jump in instantly — <strong>no account needed</strong>.</p>
+ <div class="hero1-left">
+ <p>Jump in instantly — <strong>no account needed</strong>.</p>
 
-            <ul>
-              <li>Play with friends</li>
-              <li>Customize your avatar</li>
-              <li>Create your own games</li>
-              <li>Explore a growing world of community content</li>
-              <li>Free to Download</li>
-              <li>Very fun</li>
-              <li>Recommended to try</li> 
-            </ul>
-          </div>
+ <ul>
+<li>Play with friends</li>
+<li>Customize your avatar</li>
+<li>Create your own games</li>
+<li>Explore a growing world of community content</li>
+<li>Free to Download</li>
+<li>Very fun</li>
+<li>Recommended to try</li> 
+ </ul>
+ </div>
 
-          <div class="hero1-divider"></div>
+ <div class="hero1-divider"></div>
 
-          <div class="hero1-right">
-            <ul>
-             <li>No Microtransactions</li>
-             <li>No Ads</li>
-             <li>No AI</li>
-            </ul>
+ <div class="hero1-right">
+ <ul>
+<li>No Microtransactions</li>
+<li>No Ads</li>
+<li>No AI</li>
+ </ul>
 
-            <br><br><br><br><br><br>
+ <br><br><br><br><br><br>
 
-            <a href="https://archive.org/download/RayGamix-Setup-x64.exe/RayGamix-Setup-x64.exe" onclick="showSuccess()" class="download-btn">
-              Download RayGamix now!
-            </a>
+ <a href="https://archive.org/download/raygamix/RayGamix-Setup.exe" onclick="showSuccess()" class="download-btn">
+Download RayGamix now!
+ </a>
 
-          </div>
+ </div>
 
-        </div>
+ </div>
 
-      </section>
-    </section>
+</section>
+</section>
 
-  </div>
+</div>
 
 </div> <!-- END PAGE1 -->
 
@@ -237,75 +240,73 @@
 <!-- PAGE 2 -->
 <div id="page2" style="display:none; text-align:center;">
 
-  <div class="empty">
-    <img class="logo" src="https://raygamix.github.io/logo.png">
-  </div>
+<div class="empty">
+<img class="logo" src="https://raygamix.github.io/logo.png">
+</div>
 
-  <div class="hero">
-    <div class="hero1">
-      <h1>Download Successful!</h1>
-      <p>Thank you for downloading RayGamix!</p>
-      <p>Have fun exploring the universe!</p>
-      <p>Here is more Info about the downloaded file:</p>
-      <ul>
-        <li>2 of 64 vendors flagged as malicious <a href="https://www.virustotal.com/gui/file-analysis/NjA4MWViNGFiNmU4MTFlNTBkNzgyMTBjYjdlY2U4OGI6MTc3NTA0ODQwNg==">on VirusTotal</a>. It is a <a href="https://www.google.com/search?q="What is a false positive?"">false positive</a>.</li>
-          <li>SHA256: 707a7544584e4b06323611511f46ad440e56459aed5ebec37a553d15239aaa55</li>
-          <li>SHA1: 657b30630a116bdc15294d203a05b67254636e57</li>
-          <li>File Size: 71996KB/70.2MB</li>
-          <li>Publisher/Company: The RayGamix Team</li>
-          <li>Certificate Valid: From 24/02/2026 to 24/02/2027</li>
-          <li>Certificate Made: 24/02/2026 ~10:20PM UTC+1 [Without Daylight Saving❌]</li>
-      </ul>
+<div class="hero">
+<div class="hero1">
+<h1>Download Successful!</h1>
+<p>Thank you for downloading RayGamix!</p>
+<p>Have fun exploring the universe!</p>
+<p>Here is more Info about the downloaded file:</p>
+<ul>
+<li>Size: 142397 KB</li>
+<li>Date Modified (DD/MM/YYYY): 01/06/2026 11:13PM</li>
+<li>Language: English</li>
+<li>SHA256: 99fd2dd5e9e32f3bf98224805523203507ebafbad03907dfa17062a1207f44f8</li>
+<li>SHA1: 73c42f8463a7e10b6d5b5abe13265f21a24a27a8</li>
+</ul>
 <br>
-      <a class="download-btn" href="https://archive.org/download/RayGamix-Setup-x64.exe/RayGamix-Setup-x64.exe">
-        Download not starting? Click here to manually download RayGamix!
-      </a><br><br><br>
-        <iframe style="width:100%;height:600px;" src="data:text/html;base64,PGRpdiBzdHlsZT0iZGlzcGxheTpibG9jayFpbXBvcnRhbnQ7Y29sb3I6d2hpdGU7YmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCB0b3AgbGVmdCwgIzFmMjkzNywgIzAyMDYxNyk7IHBhZGRpbmc6MTVweDsiPg0KDQogICAgT2ZmbGluZSByZXN1bHRzOg0KDQogICAgPHA+PHN0cm9uZz5Db21tdW5pdHkgU2NvcmU8L3N0cm9uZz48YnI+DQogICAgMi82NCBzZWN1cml0eSB2ZW5kb3JzIGZsYWdnZWQgdGhpcyBmaWxlIGFzIG1hbGljaW91cy48L3A+DQoNCiAgICA8cD48c3Ryb25nPlJlYW5hbHl6ZTwvc3Ryb25nPjxicj4NCiAgICA3MDdhNzU0NDU4NGU0YjA2MzIzNjExNTExZjQ2YWQ0NDBlNTY0NTlhZWQ1ZWJlYzM3YTU1M2QxNTIzOWFhYTU1PC9wPg0KDQogICAgPHA+PHN0cm9uZz5GaWxlIE5hbWU8L3N0cm9uZz48YnI+DQogICAgUmF5R2FtaXgtU2V0dXAteDY0LmV4ZTwvcD4NCg0KICAgIDxwPjxzdHJvbmc+U2l6ZTwvc3Ryb25nPjxicj4NCiAgICA3MC4yOCBNQjwvcD4NCg0KICAgIDxwPjxzdHJvbmc+TGFzdCBBbmFseXNpcyBEYXRlPC9zdHJvbmc+PGJyPg0KICAgIDAxLjA0LjIwMjYgMTU6MDA8L3A+DQoNCiAgICA8cD48c3Ryb25nPlRhZ3M8L3N0cm9uZz48YnI+DQogICAgcGVleGU8YnI+DQogICAgaW52YWxpZC1zaWduYXR1cmU8YnI+DQogICAgc2lnbmVkPGJyPg0KICAgIG92ZXJsYXk8L3A+DQoNCiAgICA8aDI+RmluYWwgUmVzdWx0cyBbYnkgVmlydXN0b3RhbF08L2gyPg0KDQogICAgPGgzPkRldGVjdGVkPC9oMz4NCiAgICA8dWw+DQogICAgICAgIDxsaT5HRGF0YTogU2NyaXB0Lk1hbHdhcmUuUHJvamV4dG9yLkI8L2xpPg0KICAgICAgICA8bGk+TWljcm9zb2Z0OiBUcm9qYW46V2luMzIvV2FjYXRhYy5CIW1sPC9saT4NCiAgICA8L3VsPg0KDQogICAgPGgzPlVuZGV0ZWN0ZWQ8L2gzPg0KICAgIDx1bD4NCiAgICAgICAgPGxpPkFjcm9uaXMgKFN0YXRpYyBNTCk8L2xpPg0KICAgICAgICA8bGk+QWxpYmFiYTwvbGk+DQogICAgICAgIDxsaT5BbGlDbG91ZDwvbGk+DQogICAgICAgIDxsaT5BbnRpeS1BVkw8L2xpPg0KICAgICAgICA8bGk+QXJjYWJpdDwvbGk+DQogICAgICAgIDxsaT5BcmN0aWMgV29sZjwvbGk+DQogICAgICAgIDxsaT5BdmFzdDwvbGk+DQogICAgICAgIDxsaT5BVkc8L2xpPg0KICAgICAgICA8bGk+QXZpcmEgKG5vIGNsb3VkKTwvbGk+DQogICAgICAgIDxsaT5CYWlkdTwvbGk+DQogICAgICAgIDxsaT5CaXREZWZlbmRlcjwvbGk+DQogICAgICAgIDxsaT5Ca2F2IFBybzwvbGk+DQogICAgICAgIDxsaT5DbGFtQVY8L2xpPg0KICAgICAgICA8bGk+Q01DPC9saT4NCiAgICAgICAgPGxpPkNyb3dkU3RyaWtlIEZhbGNvbjwvbGk+DQogICAgICAgIDxsaT5DVFg8L2xpPg0KICAgICAgICA8bGk+RGVlcEluc3RpbmN0PC9saT4NCiAgICAgICAgPGxpPkRyV2ViPC9saT4NCiAgICAgICAgPGxpPkVtc2lzb2Z0PC9saT4NCiAgICAgICAgPGxpPmVTY2FuPC9saT4NCiAgICAgICAgPGxpPkVTRVQtTk9EMzI8L2xpPg0KICAgICAgICA8bGk+Rm9ydGluZXQ8L2xpPg0KICAgICAgICA8bGk+R29vZ2xlPC9saT4NCiAgICAgICAgPGxpPkdyaWRpbnNvZnQgKG5vIGNsb3VkKTwvbGk+DQogICAgICAgIDxsaT5IdW9yb25nPC9saT4NCiAgICAgICAgPGxpPklrYXJ1czwvbGk+DQogICAgICAgIDxsaT5KaWFuZ21pbjwvbGk+DQogICAgICAgIDxsaT5LN0FudGlWaXJ1czwvbGk+DQogICAgICAgIDxsaT5LN0dXPC9saT4NCiAgICAgICAgPGxpPkthc3BlcnNreTwvbGk+DQogICAgICAgIDxsaT5LaW5nc29mdDwvbGk+DQogICAgICAgIDxsaT5MaW9uaWM8L2xpPg0KICAgICAgICA8bGk+TWFsd2FyZWJ5dGVzPC9saT4NCiAgICAgICAgPGxpPk1heFNlY3VyZTwvbGk+DQogICAgICAgIDxsaT5NY0FmZWUgU2Nhbm5lcjwvbGk+DQogICAgICAgIDxsaT5OQU5PLUFudGl2aXJ1czwvbGk+DQogICAgICAgIDxsaT5QYWxvIEFsdG8gTmV0d29ya3M8L2xpPg0KICAgICAgICA8bGk+UGFuZGE8L2xpPg0KICAgICAgICA8bGk+UXVpY2tIZWFsPC9saT4NCiAgICAgICAgPGxpPlJpc2luZzwvbGk+DQogICAgICAgIDxsaT5TYW5nZm9yIEVuZ2luZSBaZXJvPC9saT4NCiAgICAgICAgPGxpPlNlY3VyZUFnZTwvbGk+DQogICAgICAgIDxsaT5TZW50aW5lbE9uZSAoU3RhdGljIE1MKTwvbGk+DQogICAgICAgIDxsaT5Tb3Bob3M8L2xpPg0KICAgICAgICA8bGk+U1VQRVJBbnRpU3B5d2FyZTwvbGk+DQogICAgICAgIDxsaT5TeW1hbnRlYzwvbGk+DQogICAgICAgIDxsaT5UQUNIWU9OPC9saT4NCiAgICAgICAgPGxpPlRFSFRSSVM8L2xpPg0KICAgICAgICA8bGk+VGVuY2VudDwvbGk+DQogICAgICAgIDxsaT5UcmFwbWluZTwvbGk+DQogICAgICAgIDxsaT5WYXJpc3Q8L2xpPg0KICAgICAgICA8bGk+VkJBMzI8L2xpPg0KICAgICAgICA8bGk+VklQUkU8L2xpPg0KICAgICAgICA8bGk+VmlySVQ8L2xpPg0KICAgICAgICA8bGk+VmlSb2JvdDwvbGk+DQogICAgICAgIDxsaT5XZWJyb290PC9saT4NCiAgICAgICAgPGxpPldpdGhTZWN1cmU8L2xpPg0KICAgICAgICA8bGk+WGNpdGl1bTwvbGk+DQogICAgICAgIDxsaT5ZYW5kZXg8L2xpPg0KICAgICAgICA8bGk+WmlsbHlhPC9saT4NCiAgICAgICAgPGxpPlpvbmVBbGFybSBieSBDaGVjayBQb2ludDwvbGk+DQogICAgICAgIDxsaT5ab25lcjwvbGk+DQogICAgPC91bD4NCg0KICAgIDxoMz5UaW1lb3V0PC9oMz4NCiAgICA8dWw+DQogICAgICAgIDxsaT5BaG5MYWItVjM8L2xpPg0KICAgICAgICA8bGk+U2t5aGlnaCAoU1dHKTwvbGk+DQogICAgICAgIDxsaT5UcmVsbGl4IEVOUzwvbGk+DQogICAgICAgIDxsaT5UcmVuZE1pY3JvPC9saT4NCiAgICAgICAgPGxpPlRyZW5kTWljcm8tSG91c2VDYWxsPC9saT4NCiAgICA8L3VsPg0KDQogICAgPGgzPlVuYWJsZSB0byBwcm9jZXNzIGZpbGUgdHlwZTwvaDM+DQogICAgPHVsPg0KICAgICAgICA8bGk+QXZhc3QtTW9iaWxlPC9saT4NCiAgICAgICAgPGxpPkJpdERlZmVuZGVyRmFseDwvbGk+DQogICAgICAgIDxsaT5DeW5ldDwvbGk+DQogICAgICAgIDxsaT5FbGFzdGljPC9saT4NCiAgICAgICAgPGxpPlN5bWFudGVjIE1vYmlsZSBJbnNpZ2h0PC9saT4NCiAgICAgICAgPGxpPlRydXN0bG9vazwvbGk+DQogICAgPC91bD4NCg0KPC9kaXY+"></iframe>
-    </div>
+<a class="download-btn" href="https://archive.org/download/raygamix/RayGamix-Setup.exe">
+ Download not starting? Click here to manually download RayGamix!
+</a><br><br><br>
+</div>
+</div>
 
-  </div>
+</div>
 
 
 
 <!-- ⭐ DYNAMIC WORD SLIDER SCRIPT -->
 <script>
-  const slider = document.getElementById("slider");
-  const words = slider.children.length;
-  const wordHeight = slider.children[0].offsetHeight;
+const slider = document.getElementById("slider");
+const words = slider.children.length;
+const wordHeight = slider.children[0].offsetHeight;
 
-  const pause = 1.75; // seconds to WAIT on each word
-  const scrollTime = 0.5; // seconds to SCROLL
-  const totalTime = words * (pause + scrollTime);
+const pause = 1.75; // seconds to WAIT on each word
+const scrollTime = 0.5; // seconds to SCROLL
+const totalTime = words * (pause + scrollTime);
 
-  let keyframes = "@keyframes autoSlide {";
+let keyframes = "@keyframes autoSlide {";
 
-  for (let i = 0; i < words; i++) {
-    const start = (i / words) * 100;
-    const mid = start + (pause / totalTime) * 100;
-    const end = ((i + 1) / words) * 100;
+for (let i = 0; i < words; i++) {
+const start = (i / words) * 100;
+const mid = start + (pause / totalTime) * 100;
+const end = ((i + 1) / words) * 100;
 
-    keyframes += `
-      ${start}% { transform: translateY(-${i * wordHeight}px); }
-      ${mid}% { transform: translateY(-${i * wordHeight}px); }
-      ${end}% { transform: translateY(-${(i + 1) % words * wordHeight}px); }
-    `;
-  }
+keyframes += `
+${start}% { transform: translateY(-${i * wordHeight}px); }
+${mid}% { transform: translateY(-${i * wordHeight}px); }
+${end}% { transform: translateY(-${(i + 1) % words * wordHeight}px); }
+`;
+}
 
-  keyframes += "}";
+keyframes += "}";
 
-  const style = document.createElement("style");
-  style.innerHTML = keyframes;
-  document.head.appendChild(style);
+const style = document.createElement("style");
+style.innerHTML = keyframes;
+document.head.appendChild(style);
 
-  slider.style.animationDuration = totalTime + "s";
+slider.style.animationDuration = totalTime + "s";
 </script>
 
 
 <script>
-  function showSuccess() {
-    document.getElementById("page1").style.display = "none";
-    document.getElementById("page2").style.display = "block";
-  }
+function showSuccess() {
+document.getElementById("page1").style.display = "none";
+document.getElementById("page2").style.display = "block";
+}
 </script>
 
 

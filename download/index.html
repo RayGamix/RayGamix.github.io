@@ -72,7 +72,7 @@ gap: 40px;
 .hero1-divider { width: 2px; background: rgba(255,255,255,0.2); }
 .hero1-right { flex: 1; display: flex; flex-direction: column; }
 
-.download-btn {
+.btn {
 margin-top: 15px;
 padding: 14px 22px;
 color: #000;
@@ -86,8 +86,21 @@ text-align: center;
 width: 100%;
 transition: 1.25s ease;
 }
+.btn2{
+margin-top: 15px;
+padding: 14px 22px;
+color: #ededed;
+border: 1px solid #0077ff;
+border-radius: 10px;
+font-size: 1rem;
+cursor: pointer;
+background: #090f20;
+text-align: center;
+width: 100%;
+transition: 1.25s ease;
+}
 
-.download-btn:hover { filter: brightness(75%); }
+.btn:hover, .btn2:hover { filter: brightness(75%); }
 
 /* -------------------------------------- */
 /* THE GAME BUILT TO BE (STYLED BOX)*/
@@ -158,23 +171,20 @@ font-weight: 900;
 
 83.33333333333334% { transform: translateY(-510px); }
 96.2962962962963% { transform: translateY(-510px); }
-100% { transform: translateY(-0px); }
+100% { transform: translateY(0px); }
 }</style>
 <style>
  a{text-decoration: none;}
 </style></head>
 
 <body>
-
+<div class="empty">
+<img class="logo" src="https://raygamix.github.io/logo.png">
+</div>
 <!-- PAGE 1 -->
 <div id="page1">
 
 <div class="HEROCONTAINER">
-
-<div class="empty">
-<img class="logo" src="https://raygamix.github.io/logo.png">
-</div>
-
 <section class="hero">
 <section class="hero1">
 
@@ -221,10 +231,10 @@ font-weight: 900;
 
  <br><br><br><br><br><br>
 
- <a href="https://archive.org/download/raygamix/RayGamix-Setup.exe" onclick="showSuccess()" class="download-btn">
+ <a href="https://archive.org/download/raygamix/RayGamix-Setup.exe" onclick="showSuccess()" class="btn">
 Download RayGamix now!
  </a>
-
+<button class="btn2" onclick="req()">Requirements</button>
  </div>
 
  </div>
@@ -240,10 +250,6 @@ Download RayGamix now!
 <!-- PAGE 2 -->
 <div id="page2" style="display:none; text-align:center;">
 
-<div class="empty">
-<img class="logo" src="https://raygamix.github.io/logo.png">
-</div>
-
 <div class="hero">
 <div class="hero1">
 <h1>Download Successful!</h1>
@@ -258,14 +264,26 @@ Download RayGamix now!
 <li>SHA1: 73c42f8463a7e10b6d5b5abe13265f21a24a27a8</li>
 </ul>
 <br>
-<a class="download-btn" href="https://archive.org/download/raygamix/RayGamix-Setup.exe">
+<a class="btn" href="https://archive.org/download/raygamix/RayGamix-Setup.exe">
  Download not starting? Click here to manually download RayGamix!
 </a><br><br><br>
 </div>
-</div>
+</div> 
 
 </div>
-
+<div id="page3" style="display: none">
+<div class="hero">
+<h1>Requirements</h1>
+<ul>
+<li>Windows XP SP1 or newer</li>
+<li>768MB RAM or more (Recommended 2GB RAM+)</li>
+<li>A CPU with SSE2 / Pentium 4 or newer (Recommended: i5-8xxx+)</li>
+<li>250MB Disk Space or more</li>
+<li></li>
+<li></li>
+</ul>
+</div>
+</div>
 
 
 <!-- ⭐ DYNAMIC WORD SLIDER SCRIPT -->
@@ -308,7 +326,13 @@ document.getElementById("page1").style.display = "none";
 document.getElementById("page2").style.display = "block";
 }
 </script>
-
+<script>
+function req() {
+document.getElementById("page1").style.display = "none";
+document.getElementById("page2").style.display = "none";
+document.getElementById("page3").style.display = "block";
+}
+</script>
 
 
 </body></html>

@@ -10,7 +10,7 @@ RayGamix Version: 1.0 (if backend exists)
     <meta charset="UTF-8">
     <title>RayGamix Launcher</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="https://raygamix.github.io/favicon.png">
+    <link rel="icon" type="image/png" href="https://raygamix.com/favicon.png">
     <style>
         :root {
             --bg: #000; --panel: #071018; --card: #111; --muted: #9aa;
@@ -142,19 +142,19 @@ RayGamix Version: 1.0 (if backend exists)
             <span id="uDisp">Guest</span>
             <span id="vBadge" class="badge" title="Verified User">VERIFIED</span>
         </div>
-        <div style="color:#ffd700; font-size:14px; margin-bottom:5px;"><img src="https://raw.githubusercontent.com/RayGamix/RayGamix.github.io/b88491d1aa9d8c6e66f889313342f045f59e6290/token.svg" class="tokenIcon"><span id="tVal">0</span> Tokens</div>
+        <div style="color:#ffd700; font-size:14px; margin-bottom:5px;"><img src="https://raw.githubusercontent.com/RayGamix/RayGamix.com/b88491d1aa9d8c6e66f889313342f045f59e6290/token.svg" class="tokenIcon"><span id="tVal">0</span> Tokens</div>
         <div id="streakDisp" style="color:var(--muted); font-size:11px; margin-bottom:15px; display:none;">🔥 Streak: <span id="streakNum">0</span> days</div>
 
         <button class="btn" onclick="openOverlay('avatar-panel')">Customize Color</button>
         <button class="btn" style="background:#cc66ff; color:#fff; margin-top:5px;" onclick="openAccessoryPanel()">🎒 Equip 3D Items</button>
         <button class="btn-alt" style="margin-top:5px;" onclick="openOverlay('face-panel')">Customize face</button>
         <button class="btn-alt" onclick="renewAvatar()">Renew avatar</button>
-        <button class="btn" onclick="window.location.href='https://raygamix.github.io/create'">Game Maker</button>
+        <button class="btn" onclick="window.location.href='https://raygamix.com/create'">Game Maker</button>
         <button class="btn" style="margin-top:15px;" onclick="openOverlay('maker-panel')">Publish a Game</button>
     </aside>
 
     <header class="topbar">
-        <img class="logo" src="https://raygamix.github.io/logo.png" alt="RayGamix Logo">
+        <img class="logo" src="https://raygamix.com/logo.png" alt="RayGamix Logo">
         <div class="search"><input id="gSearch" placeholder="Search Games..." oninput="renderGames()"></div>
         <div class="nav-icons">
             <div class="dropdown" style="position:relative;">
@@ -264,7 +264,7 @@ RayGamix Version: 1.0 (if backend exists)
     // --- CORE VARIABLES ---
     const VIP_USERS = ["admin", "StoicalRaybod9", "Test", "RayGamix"];
     let currentUser = "Guest";
-    let rgDB = { users: {}, games: [{ name: "RayGamix Hub", creator: "The RayGamix Team", url: "https://raygamix.github.io" }] };
+    let rgDB = { users: {}, games: [{ name: "RayGamix Hub", creator: "The RayGamix Team", url: "https://raygamix.com" }] };
     let currentRotation = 0;
 
     // --- INITIALIZATION ---

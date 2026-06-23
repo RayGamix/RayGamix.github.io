@@ -1,186 +1,271 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RayGamix – Imagine Anything</title>
-  <link rel="icon" type="image/png" href="https://raygamix.com/favicon.png">
-  <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; height: 100%; }
-    
-    body {
-      font-family: "HCo Gotham SSm", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      background: #050816;
-      color: #f5f5f5;
-      display: -webkit-box;   display: -webkit-flex;   display: -ms-flexbox; display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<title>RayGamix – Imagine Anything</title>
+<link rel="icon" type="image/png" href="https://raygamix.com/favicon.png">
 
-    /* --- -style Navigation Bar --- */
-    nav {
-        width: 100%;
-        height: 60px;
-        background: #121233;
-        display: -webkit-box;   display: -webkit-flex;   display: -ms-flexbox; display: flex;
-        align-items: center;
-        padding: 0 20px;
-        border-bottom: 1px solid #393b3d;
-        position: fixed;
-        top: 0;
-        z-index: 1000;
-    }
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
-    .nav-logo {
-        font-size: 24px;
-    }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top, #0b1030, #050816 60%);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
 
-    /* --- Hero Container --- */
-    .main-container {
-        margin-top: 80px;
-        width: 90%;
-        max-width: 1100px;
-        display: -webkit-box;   display: -webkit-flex;   display: -ms-flexbox; display: flex;
-        flex-direction: column;
-        gap: 30px;
-        padding-bottom: 50px;
-    }
+/* NAV */
+nav {
+  width: 100%;
+  height: 80px;
+  background: rgba(18,18,51,0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #2a2d3d;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
 
-    .hero-banner {
-        width: 100%;
-        padding: 60px 40px;
-        background: radial-gradient(circle at center, #222244, #020617);
-        border-radius: 8px;
-        text-align: center;
-        border: 1px solid #393b3d;
-    }
+.nav-logo img {
+  height: 60px;
+  width: auto;
+  margin-top: 15px;
+padding-bottom: 5px;
+}
 
-    .hero-banner h1 {
-        font-size: 48px;
-        margin: 0 0 10px 0;
-        font-weight: 800;
-    }
+/* LAYOUT */
+.main-container {
+  margin-top: 90px;
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 60px;
+}
 
-    .hero-banner p {
-        font-size: 18px;
-        color: #adb5bd;
-        margin-bottom: 30px;
-    }
+/* HERO */
+.hero-banner {
+  padding: 70px 40px;
+  background: linear-gradient(135deg, rgba(34,34,68,0.9), rgba(2,6,23,0.95));
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid #2c2f44;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
 
-    /* --- EXACT BUTTON STYLING --- */
-    .download-btn {
-      padding: 14px 40px;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.5rem; /* Increased for that "Big Play Button" feel */
-      font-weight: bold;
-      cursor: pointer;
-      background: radial-gradient(circle at top left, #0ca, #775bff);
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      transition: 1.25s ease;
-      box-shadow: 0 4px 15px rgba(0, 204, 170, 0.3);
-    }
+/* glow effect */
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(circle, rgba(0,204,170,0.15), transparent 60%);
+  z-index: 0;
+}
 
-    .download-btn:hover { 
-        filter: brightness(75%);
-        transform: scale(1.02);
-    }
+.hero-banner * { position: relative; z-index: 1; }
 
-    /* --- Feature Tiles ( Discovery Style) --- */
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        
-    }
+.hero-banner h1 {
+  font-size: 56px;
+  margin: 10px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
 
-    .feature-card {
-        background: #121233;
-        border-radius: 8px;
-        padding: 20px;
-        border: 1px solid #111;
-        transition: background 0.2s;
-    }
+.hero-banner p {
+  font-size: 18px;
+  color: #b6bccb;
+  max-width: 700px;
+  margin: 10px auto 25px;
+}
 
-    .feature-card:hover {
-        background: #121244;
-    }
+/* BADGE */
+.beta-badge {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-    .feature-card h3 {
-        color: #0ca;
-        margin-top: 0;
-        font-size: 1.1rem;
-    }
+/* BUTTON */
+.download-btn {
+  padding: 16px 44px;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00110d;
+  text-decoration: none;
+  display: inline-block;
+  background: linear-gradient(135deg, #0ca, #775bff);
+  box-shadow: 0 10px 30px rgba(0,204,170,0.25);
+  transition: all 0.3s ease;
+}
 
-    .feature-card p {
-        font-size: 0.9rem;
-        color: #adb5bd;
-        line-height: 1.4;
-    }
+.download-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(0,204,170,0.35);
+}
 
-    /* --- Status Footer --- */
-    .footer-note {
-        text-align: center;
-        margin-top: 40px;
-        color: #65676b;
-        font-size: 0.85rem;
-    }
+/* FEATURES */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
 
-    .beta-badge {
-        background: #393b3d;
-        color: #fff;
-        padding: 4px 12px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-  </style>
+.feature-card {
+  background: rgba(18,18,51,0.7);
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,204,170,0.5);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.feature-card h3 {
+  color: #0ca;
+  margin: 0 0 8px;
+}
+
+.feature-card p {
+  color: #aab0c0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+.footer-note {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.85rem;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.rainbow-text {
+  background: linear-gradient(90deg, #0ca, #775bff, #0ca);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowMove 5s linear infinite;
+}
+
+@keyframes rainbowMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-      <div class="nav-logo"><img src="https://raygamix.com/logo.png" style="width:250px; margin-top: 12px;"></div>
-  </nav>
+<nav>
+  <div class="nav-logo">
+    <img src="https://raygamix.com/logo.png" alt="RayGamix">
+  </div>
+</nav>
 
-  <div class="main-container">
-    <section class="hero-banner">
-        <p><span class="beta-badge">Public Beta</span></p>
-        <h1>Imagine Anything.</h1>
-        <p>RayGamix is a community-driven, creative multiplayer game where your choices shape the universe.</p>
-        
-<a href="https://raygamix.com/launcher" class="download-btn">Play Now</a>
-        <p style="margin-top: 15px; font-size: 0.9rem; color: #0ca;">No account required to start playing!</p>
-    </section>
+<div class="main-container">
 
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h3>Creative Sandbox</h3>
-            <p>Create your own games and share them with a global community.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Multiplayer Hub</h3>
-            <p>Engage in fun minigames and interact with players in a shared universe.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Avatar Choice</h3>
-            <p>Express yourself through deep avatar customization options.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Open Source</h3>
-            <p>Actively developed on GitHub by Raybod8765 with community feedback.</p>
-        </div>
+  <section class="hero-banner">
+    <span class="beta-badge">Public Beta</span>
+
+    <h1>Imagine Anything.</h1>
+
+    <p>
+      RayGamix is a community-driven multiplayer universe where creativity,
+      games, and imagination collide.
+    </p>
+
+    <a href="https://raygamix.com/launcher" class="download-btn">▶ Play Now</a>
+
+    <p class="rainbow-text" style="margin-top: 20px; font-weight: bold;">
+      No account required to start playing!
+    </p>
+  </section>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Creative Sandbox</h3>
+      <p>Create and publish your own games to a global audience.</p>
     </div>
 
-    <div class="footer-note">
-        <p>Developed by <strong>Raybod8765</strong></p>
-        <p>The RayGamix Team | 2026</p>
+    <div class="feature-card">
+      <h3>Multiplayer Hub</h3>
+      <p>Join live games, events, and interactive worlds.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Avatar System</h3>
+      <p>Customize your identity with deep personalization tools.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Open Development</h3>
+      <p>Built with community feedback and evolving systems.</p>
     </div>
   </div>
 
+  <div class="footer-note">
+<p><strong class="rainbow-text">RayGamix</strong> - The future of playable imagination</p>
+<p>© <span class="rainbow-text">RayGamix</span>. All rights reserved.</p>
+  </div>
+
+</div>
+<script>
+function rainbowifyText(node) {
+  if (!node) return;
+
+  // ignore script/style tags
+  if (node.nodeType === 1) {
+    if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(node.tagName)) return;
+  }
+
+  if (node.nodeType === 3) {
+    if (!node.nodeValue.includes("RayGamix")) return;
+
+    const parts = node.nodeValue.split("RayGamix");
+    const wrapper = document.createElement("span");
+
+    for (let i = 0; i < parts.length; i++) {
+      wrapper.appendChild(document.createTextNode(parts[i]));
+
+      if (i < parts.length - 1) {
+        const span = document.createElement("span");
+        span.className = "rainbow-text";
+        span.textContent = "RayGamix";
+        wrapper.appendChild(span);
+      }
+    }
+
+    node.replaceWith(wrapper);
+    return;
+  }
+
+  // convert to static array to avoid live DOM issues
+  const children = Array.from(node.childNodes);
+  children.forEach(rainbowifyText);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  rainbowifyText(document.body);
+});
+</script>
 </body>
 </html>
